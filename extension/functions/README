@@ -1,0 +1,46 @@
+# ----------------------------------------------------------
+# INPUTS COMMON TO ALL THREE CASES
+# ----------------------------------------------------------
+# alpha = one-sided significance level.
+# treat_response_A = true treatment response (treatment A) [proportion].
+# treat_response_B = true treatment response (treatment B) [proportion].
+# baseline_response = baseline response in control group [proportion].
+# n_arm = arm size.
+# ----------------------------------------------------------
+
+# ----------------------------------------------------------
+# 1.A. Treatments A and B entering at the same time i.e.
+# control completely shared.
+# ----------------------------------------------------------
+
+# ----------------------------------------------------------
+# Function name: gen_platform_a
+#
+# Case specific parameters:
+#
+# n_arm = number of patients per treatment arm
+# correction: if "bonferroni", performs bonferroni correction.
+#             default is unadjusted
+# ----------------------------------------------------------
+
+# ----------------------------------------------------------
+# 1.B: Treatments A and B start at different times i.e. 
+# control shared but not completely.
+# ----------------------------------------------------------
+
+# ----------------------------------------------------------
+# Function name: gen_platform_b
+#
+# Case specific parameters:
+# 
+# Considering the sections in time:
+# A1: Treat A x Control / A2: treat A x Treat B x Control / A3: Treat B x control
+# (For further detailing on A1, A2, A3, refer to sketch). 
+# n_A1 = Number of patients on each arm in time section A1
+# n_A2 = Number of patients on each arm in time section A2
+# n_A3 = Number of patients on each arm in time section A3
+# correction = Performs the imputed alpha correction. 
+#              Options are: "lond", "bonferroni", "unadjusted" (default).
+# ----------------------------------------------------------
+
+

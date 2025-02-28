@@ -1,9 +1,8 @@
-source("gen_platform_a.R")
-source("gen_platform_b.R")
+source("./extension/functions/gen_platform_a.R")
+source("./extension/functions/gen_platform_b.R")
 
 
-discovery_rate <- function(delta_A,
-                           delta_B,
+discovery_rate <- function(
                            treat_response_A,
                            treat_response_B,
                            baseline_response,
@@ -25,8 +24,7 @@ discovery_rate <- function(delta_A,
     
     if (scenario == "A") {
       trial <- gen_platform_a(
-        delta_A,
-        delta_B,
+        
         treat_response_A,
         treat_response_B,
         baseline_response,
@@ -37,8 +35,7 @@ discovery_rate <- function(delta_A,
       
     } else {
       trial <- gen_platform_b(
-        delta_A,
-        delta_B,
+        
         treat_response_A,
         treat_response_B,
         baseline_response,
@@ -51,7 +48,7 @@ discovery_rate <- function(delta_A,
     if (trial$pval_1 < alpha) { 
       total_rejections <- total_rejections + 1
       
-    if (delta_A > 0) {
+    if (treat_response_A > 0) {
       # if treatment A has positive true effect, rejection of null hypothesis is a true finding
         true_discovery_count <-
           true_discovery_count + 1
@@ -63,7 +60,7 @@ discovery_rate <- function(delta_A,
     if (trial$pval_2 < alpha) { 
       total_rejections <- total_rejections + 1
       
-      if (delta_B > 0) {
+      if (treat_response_B > 0) {
         # if treatment B has positive true effect, rejection of null hypothesis is a true finding
         true_discovery_count <-
           true_discovery_count + 1
@@ -91,8 +88,6 @@ discovery_rate <- function(delta_A,
 
 # testing function
 discovery_rate(
-  delta_A = 0,
-  delta_B = 0.1,
   treat_response_A = 0.1,
   treat_response_B = 0.1,
   baseline_response = 0.1,
