@@ -1,6 +1,2 @@
 Simple case is under "simple_case"
 Introduction of arm B is under "extension"
-
-notes to self:
-gen_rct: UPDATE TO CALCULATE LOG ODDS JUST LIKE FOR PLATFORM. THIS SHOULD ALSO INCUR ALTERATIONS IN RESULTS. 
-ALSO FOR RESULTS, EXTRACT FUNCTIONS BASED ON PATHS FROM NEW FOLDER SETUP.

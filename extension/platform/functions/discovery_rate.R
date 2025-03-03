@@ -1,5 +1,5 @@
-source("./extension/functions/gen_platform_a.R")
-source("./extension/functions/gen_platform_b.R")
+source("./extension/platform/functions/gen_platform_a.R")
+source("./extension/platform/functions/gen_platform_b.R")
 
 
 discovery_rate <- function(

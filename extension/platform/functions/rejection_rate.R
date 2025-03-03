@@ -1,5 +1,5 @@
-source("./extension/functions/gen_platform_a.R")
-source("./extension/functions/gen_platform_b.R")
+source("./extension/platform/functions/gen_platform_a.R")
+source("./extension/platform/functions/gen_platform_b.R")
 
 # For type I error (delta = 0) and power (delta > 0), rejection of individual hypothesis given different true treatment effects
 # scenario: "A" = Treatments starting at the same time; "B" = starting at different times (B starts later)
@@ -31,7 +31,6 @@ rejection_rate <- function(
       
     } else {
       trial <- gen_platform_b(
-        
         treat_response_A,
         treat_response_B,
         baseline_response,

@@ -1,12 +1,13 @@
+source("./simple_case/two_trial/functions/gen_rct.R")
+
 ### For two individual trials: 
-successful_trials <- function(I_treatment_1, I_treatment_2, n_arm_1,n_arm_2,
-                              iterations, alpha, tau, a_control, b_control){
+successful_trials <- function(treat_response, baseline_response, n_arm, iterations, alpha){
   counts <- 0
   
   for(i in 1:iterations){
     
-    trial1<-gen_rct(I_treatment_1, a_control, b_control, n_arm_1, tau)
-    trial2<-gen_rct(I_treatment_2, a_control, b_control, n_arm_2, tau)
+    trial1<-gen_rct(treat_response, baseline_response, n_arm)
+    trial2<-gen_rct(treat_response, baseline_response, n_arm)
     
     if ((trial1[[1]]$p.value < alpha) && (trial2[[1]]$p.value < alpha)) {
       counts <- counts + 1  
