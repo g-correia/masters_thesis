@@ -18,7 +18,7 @@ discovery_rate <- function(treat_response_A,
   for (i in 1:iterations) {
     false_discovery_count <- 0
     true_discovery_count <- 0
-    
+    total_rejections_count <- 0
     
     if (scenario == "A") {
       trial <- gen_platform_a(
@@ -42,7 +42,7 @@ discovery_rate <- function(treat_response_A,
     }
     
     if (trial$pval_1 < alpha) { 
-      total_rejections <- total_rejections + 1
+      total_rejections_count <- total_rejections_count + 1
       
     if (treat_response_A > baseline_response) {
       # if treatment A has positive true effect, rejection of null hypothesis is a true finding
@@ -53,7 +53,7 @@ discovery_rate <- function(treat_response_A,
     }
     
     if (trial$pval_2 < alpha) { 
-      total_rejections <- total_rejections + 1
+      total_rejections_count <- total_rejections_count + 1
       
       if (treat_response_B > baseline_response) {
         # if treatment B has positive true effect, rejection of null hypothesis is a true finding
@@ -65,17 +65,17 @@ discovery_rate <- function(treat_response_A,
     }
     
     
-    if (total_rejections > 0) { # if there were rejections, calculate discoveries
-      false_discovery <- c(false_discovery, false_discovery_count / total_rejections)
-      true_discovery <- c(true_discovery, true_discovery_count / total_rejections)
-    } else { # otherwise, we exclude this observation from the vector of discoveries
-      false_discovery <- c(false_discovery, NA)
-      true_discovery <- c(true_discovery, NA)
+    if (total_rejections_count > 0) { # if there were rejections, calculate discoveries
+      false_discovery <- c(false_discovery, false_discovery_count / total_rejections_count)
+      true_discovery <- c(true_discovery, true_discovery_count / total_rejections_count)
+    } else { # otherwise, we count no discoveries
+      false_discovery <- c(false_discovery, 0)
+      true_discovery <- c(true_discovery, 0)
     }
   }
   
-  fdr <- mean(false_discovery, na.rm = TRUE)
-  tdr <- mean(true_discovery, na.rm = TRUE)
+  fdr <- mean(false_discovery)
+  tdr <- mean(true_discovery)
   
   return(list(c(
     "false discovery rate", "true discovery rate"), c(fdr, tdr)))
@@ -89,7 +89,7 @@ discovery_rate(
   n_arm = 266,
   alpha = 0.025,
   correction = "unadjusted",
-  iterations = 1000,
+  iterations = 100000,
   scenario = "B"
 )
 

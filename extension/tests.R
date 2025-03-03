@@ -48,15 +48,49 @@ rejection_rate(
 )
 
 # Discovery rate:
-
-discovery_rate(
+# no effect of both treatments
+# expected: 5%
+a<-discovery_rate(
     treat_response_A = 0.1,
     treat_response_B = 0.1,
     baseline_response = 0.1,
     n_arm = 266,
     alpha = 0.025,
     correction = "unadjusted",
-    iterations = 10000,
+    iterations = 100000,
     scenario = "B")
-  
+
+# effect of 5% both treatments (powered to detect 10%, n = 266)
+# expected: ?
+b<-discovery_rate(
+  treat_response_A = 0.15,
+  treat_response_B = 0.15,
+  baseline_response = 0.1,
+  n_arm = 266,
+  alpha = 0.025,
+  correction = "unadjusted",
+  iterations = 100000,
+  scenario = "B")
+
+# effect of 10% only treat A and 0 for treat B (powered to detect 10%, n = 266)
+
+# Expected: 
+# treat A: no fdr
+# treat B: around 5%/2
+
+# fdr: 5% -5%/2?
+# tdr: +5%/2?
+c<-discovery_rate(
+  treat_response_A = 0.2,
+  treat_response_B = 0.1,
+  baseline_response = 0.1,
+  n_arm = 266,
+  alpha = 0.025,
+  correction = "unadjusted",
+  iterations = 100000,
+  scenario = "B")
+
+a
+b
+c
 
