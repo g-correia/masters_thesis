@@ -4,6 +4,8 @@ source("./simple_case/two_trial/functions/successful_trials.R")
 
 source("./sample_sizes.R")
 
+iterations <- 1000
+
 ## For two-trial, same function used before (already tested at previous step).
 # A_result = sucessful_trials (based on gen_rct()) -> results correspond to trial 1 and trial 2 of Treatment A
 # B_result = sucessful_trials (based on gen_rct()) -> results correspond to trial 1 and trial 2 of Treatment B
@@ -15,7 +17,7 @@ successful_trials(treat_response = 0.1,
                   baseline_response = 0.1,
                   n_arm = 266,
                   alpha = 0.025,
-                  iterations = 100000) # same results as before
+                  iterations = iterations) # same results as before
 
 ## Platform trial:
 
@@ -30,7 +32,7 @@ rejection_rate(
   n_arm = 266,
   alpha = 0.025,
   correction = "unadjusted",
-  iterations = 100000,
+  iterations = iterations,
   scenario = "A"
 )
 
@@ -43,7 +45,7 @@ rejection_rate(
   n_arm = 266,
   alpha = 0.025,
   correction = "unadjusted",
-  iterations = 100000,
+  iterations = iterations,
   scenario = "B"
 )
 
@@ -57,7 +59,7 @@ a<-discovery_rate(
     n_arm = 266,
     alpha = 0.025,
     correction = "unadjusted",
-    iterations = 100000,
+    iterations = iterations,
     scenario = "B")
 
 # effect of 5% both treatments (powered to detect 10%, n = 266)
@@ -69,7 +71,7 @@ b<-discovery_rate(
   n_arm = 266,
   alpha = 0.025,
   correction = "unadjusted",
-  iterations = 100000,
+  iterations = iterations,
   scenario = "B")
 
 # effect of 10% only treat A and 0 for treat B (powered to detect 10%, n = 266)
@@ -87,10 +89,13 @@ c<-discovery_rate(
   n_arm = 266,
   alpha = 0.025,
   correction = "unadjusted",
-  iterations = 100000,
+  iterations = iterations,
   scenario = "B")
 
-a
-b
-c
+a # when both treatments are ineffective, result should be 100% for false discovery. I think I am looking out of every iteration and not out of every discovery made. Look into mean(false_discovery)
+b # when both treatments are effective, should be 0% for false discovery
+c # should be small for false discovery and big for true discovery
+
+# After this is done, try out tests with different correction procedures.
+
 

@@ -8,7 +8,7 @@ gen_platform_b <-
     
     if(correction != "unadjusted" & 
        correction != "bonferroni" &
-       correction !="lond"){
+       correction != "lond"){
       return("Error in correction method. Can only be 'unadjusted' (default), 'bonferroni' or 'lond'")
     }
     
