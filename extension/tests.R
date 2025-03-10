@@ -51,7 +51,7 @@ rejection_rate(
 
 # Discovery rate:
 # no effect of both treatments
-# expected: 5%
+# expected: 0
 a<-discovery_rate(
     treat_response_A = 0.1,
     treat_response_B = 0.1,
@@ -63,7 +63,7 @@ a<-discovery_rate(
     scenario = "B")
 
 # effect of 5% both treatments (powered to detect 10%, n = 266)
-# expected: ?
+# expected: 1
 b<-discovery_rate(
   treat_response_A = 0.15,
   treat_response_B = 0.15,
@@ -75,13 +75,6 @@ b<-discovery_rate(
   scenario = "B")
 
 # effect of 10% only treat A and 0 for treat B (powered to detect 10%, n = 266)
-
-# Expected: 
-# treat A: no fdr
-# treat B: around 5%/2
-
-# fdr: 5% -5%/2?
-# tdr: +5%/2?
 c<-discovery_rate(
   treat_response_A = 0.2,
   treat_response_B = 0.1,
@@ -92,10 +85,7 @@ c<-discovery_rate(
   iterations = iterations,
   scenario = "B")
 
-a # when both treatments are ineffective, result should be 100% for false discovery. I think I am looking out of every iteration and not out of every discovery made. Look into mean(false_discovery)
-b # when both treatments are effective, should be 0% for false discovery
-c # should be small for false discovery and big for true discovery
-
-# After this is done, try out tests with different correction procedures.
-
+a 
+b 
+c 
 

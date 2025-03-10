@@ -65,17 +65,18 @@ discovery_rate <- function(treat_response_A,
     }
     
     
-    if (total_rejections_count > 0) { # if there were rejections, calculate discoveries
+    if (total_rejections_count > 0) { # if there were rejections, calculate the false discovery rate of the trial
       false_discovery <- c(false_discovery, false_discovery_count / total_rejections_count)
       true_discovery <- c(true_discovery, true_discovery_count / total_rejections_count)
     } else { # otherwise, we count no discoveries
-      false_discovery <- c(false_discovery, 0)
-      true_discovery <- c(true_discovery, 0)
+      false_discovery <- c(false_discovery, NA)
+      true_discovery <- c(true_discovery, NA)
     }
   }
   
-  fdr <- mean(false_discovery)
-  tdr <- mean(true_discovery)
+  # Average the false discovery rates across trials
+  fdr <- mean(false_discovery, na.rm = T)
+  tdr <- mean(true_discovery, na.rm = T)
   
   return(list(c(
     "false discovery rate", "true discovery rate"), c(fdr, tdr)))
