@@ -20,7 +20,6 @@ rejection_rate <- function(
   for (i in 1:iterations) {
     if (scenario == "A") {
       trial <- gen_platform_a(
-        
         treat_response_A,
         treat_response_B,
         baseline_response,
@@ -40,11 +39,11 @@ rejection_rate <- function(
       )
     }
     
-    if ((trial$pval_1 < alpha)) {
+    if ((trial$pval_1 < trial$alpha_1)) {
       counts_treat_a <- counts_treat_a + 1  # rejection treatment A
     }
     
-    if ((trial$pval_2 < alpha)) {
+    if ((trial$pval_2 < trial$alpha_2)) {
       counts_treat_b <- counts_treat_b + 1 # rejection treatment B
     }
     
@@ -56,12 +55,11 @@ rejection_rate <- function(
 }
 
 # testing function
-rejection_rate(
-               treat_response_A = 0.1,
-               treat_response_B = 0.1,
+rejection_rate(treat_response_A = 0.2,
+               treat_response_B = 0.2,
                baseline_response = 0.1,
-               n_arm = 300,
+               n_arm = 100,
                alpha = 0.025,
-               correction = "unadjusted",
+               correction = "lond",
                iterations = 1000,
-               scenario = "A")
+               scenario = "B")

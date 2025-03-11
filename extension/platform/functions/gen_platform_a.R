@@ -6,8 +6,8 @@ gen_platform_a <-
            alpha,
            correction="unadjusted") {
     
-    if(correction != "unadjusted" & correction != "bonferroni"){
-      return("Error in correction method. Can only be 'unadjusted' (default) or 'bonferroni'")
+    if(correction != "unadjusted" & correction != "adjustment 2" & correction != "adjustment 3" & correction != "adjustment 4"){
+      return("Error in correction method. Can only be 'unadjusted' (default) or adjustment 2, 3 or 4")
     }
     
     
@@ -25,13 +25,24 @@ gen_platform_a <-
     test_1 <- prop.test(x = treatment_table_1, n = n_test, alternative = "greater", correct = TRUE)
     test_2 <- prop.test(x = treatment_table_2, n = n_test, alternative = "greater", correct = TRUE)
     
-    # Extract p-values
+    # Vector of p-values
     pvals <- c(test_1$p.value, test_2$p.value)
     
-    if(correction == "bonferroni"){
+    if((correction == "adjustment 2")){
+      # Adjust to account for single pivotal study
+      alpha <- alpha/4
       
-      # apply Bonferroni correction:
-      pvals <- p.adjust(pvals, method = "bonferroni")
+    }
+    
+    if(correction == "adjustment 3"){
+      # Bonferroni correction
+      alpha <- alpha/2
+      
+    }
+    
+    if(correction == "adjustment 4"){
+      # Adjust to account for single pivotal study and apply bonferroni correction
+      alpha <- alpha/8
       
     }
     
@@ -42,16 +53,17 @@ gen_platform_a <-
       p_treat_1 = treat_response_A,
       p_treat_2 = treat_response_B,
       alpha_1 = alpha,
-      alpha_1 = alpha
+      alpha_2 = alpha
     ))
     
   }
 
 # testing function
-gen_platform_a(
+test<-gen_platform_a(
                treat_response_A = 0,
                treat_response_B = 0.1,
                baseline_response = 0.1,
                n_arm = 300,
                alpha = 0.025,
-               correction = "unadjusted")
+               correction = "adjustment 4")
+

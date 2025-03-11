@@ -12,6 +12,8 @@ gen_platform_b <-
       return("Error in correction method. Can only be 'unadjusted' (default), 'bonferroni' or 'lond'")
     }
     
+    # Starting alpha vector
+    new_alpha <- c(alpha, alpha)
     
     # Defining n_A's, number of patients per section in time:
     n_A1 <- n_arm
@@ -45,14 +47,13 @@ gen_platform_b <-
     # Extract p-values
     pvals <- c(test_1$p.value, test_2$p.value)
     
-    if(correction == "bonferoni") {
-      # Apply Bonferroni correction:
-      pvals <- p.adjust(pvals, method = "bonferroni")
+    if(correction == "bonferroni") {
+      new_alpha <- new_alpha/2
       
     } else if (correction == "lond") {
       # Apply LOND correction (for dependent p-values):
       
-      lond_result <- onlineFDR::LOND(pvals, dep = TRUE)
+      lond_result <- onlineFDR::LOND(pvals, alpha = 0.025, dep = TRUE)
       
       new_alpha <- lond_result$alphai
       
@@ -67,10 +68,8 @@ gen_platform_b <-
     return(list(
       pval_1 = pvals[1],
       pval_2 = pvals[2],
-      p_treat_1 = treat_response_A,
-      p_treat_2 = treat_response_B,
-      alpha_1 = alpha,
-      alpha_1 = alpha
+      alpha_1 = new_alpha[1],
+      alpha_2 = new_alpha[2]
     ))
     
   }
@@ -82,4 +81,4 @@ gen_platform_b(
   baseline_response = 0.1,
   n_arm = 300,
   alpha = 0.025,
-  correction = "unadjusted")
+  correction = "lond")
