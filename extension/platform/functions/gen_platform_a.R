@@ -7,7 +7,7 @@ gen_platform_a <-
            correction="unadjusted") {
     
     if(correction != "unadjusted" & correction != "adjustment 2" & correction != "adjustment 3" & correction != "adjustment 4"){
-      return("Error in correction method. Can only be 'unadjusted' (default) or adjustment 2, 3 or 4")
+      stop("Error in correction method. Can only be 'unadjusted' (default) or adjustment 2, 3 or 4")
     }
     
     

@@ -41,7 +41,7 @@ discovery_rate <- function(treat_response_A,
       )
     }
     
-    if (trial$pval_1 < alpha) { 
+    if (trial$pval_1 < trial$alpha_1) { 
       total_rejections_count <- total_rejections_count + 1
       
     if (treat_response_A > baseline_response) {
@@ -52,7 +52,7 @@ discovery_rate <- function(treat_response_A,
       }
     }
     
-    if (trial$pval_2 < alpha) { 
+    if (trial$pval_2 < trial$alpha_2) { 
       total_rejections_count <- total_rejections_count + 1
       
       if (treat_response_B > baseline_response) {
@@ -85,12 +85,12 @@ discovery_rate <- function(treat_response_A,
 # testing function
 discovery_rate(
   treat_response_A = 0.1,
-  treat_response_B = 0.1,
+  treat_response_B = 0.2,
   baseline_response = 0.1,
   n_arm = 266,
   alpha = 0.025,
-  correction = "unadjusted",
-  iterations = 100000,
+  correction = "bonferroni",
+  iterations = 1000,
   scenario = "B"
 )
 
