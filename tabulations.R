@@ -142,10 +142,10 @@ library(kableExtra)
 ### Temporary break in code for intermediate test table ###
 ###########################################################
 {
-Column5 = round(c(a1.5, a2.5, a3.5, a4.5, NA, NA, a5.5, a6.5, a7.5, a8.5, a9.5, a10.5, a11.5, a12.5, a13.5, a14.5, NA,NA),4)
-Column6 = round(c(a1.6, a2.6, a3.6, a4.6, NA, NA, a5.6, a6.6, a7.6, a8.6, a9.6, a10.6, a11.6, a12.6, a13.6, a14.6, NA,NA),4)
+Column5 = round(c(a1.5, a2.5, a3.5, a4.5, NA, NA, a5.5, a6.5, a7.5, a8.5, a9.5, a10.5, a11.5, a12.5, a13.5, a14.5, NA, NA),4)
+Column6 = round(c(a1.6, a2.6, a3.6, a4.6, NA, NA, a5.6, a6.6, a7.6, a8.6, a9.6, a10.6, a11.6, a12.6, a13.6, a14.6, NA, NA),4)
 
-n_rows <- 16
+n_rows <- 18
 n_cols <- 19
 
 df <- as.data.frame(matrix("", nrow = n_rows, ncol = n_cols), stringsAsFactors = FALSE)
@@ -154,8 +154,8 @@ df <- as.data.frame(matrix("", nrow = n_rows, ncol = n_cols), stringsAsFactors =
 # First column for row names and then columns 2-19
 colnames(df) <- c("Response Rate (%)", rep(c("10","30"), 9))
 
-df[, 4] <- Column5*100
-df[, 5] <- Column6*100
+df[, 6] <- Column5*100
+df[, 7] <- Column6*100
 
 # Define row names:
 df[,1] <- c(
@@ -175,6 +175,10 @@ df[,1] <- c(
   Treatment $\\Delta$ = 20%",
   "Treatment no effect
   Treatment $\\Delta$ = 20%",
+  "Treatment $\\Delta$ = 10%
+  Treatment $\\Delta$ = 10%",
+  "Treatment $\\Delta$ = 10%
+  Treatment $\\Delta$ = 10%",
   "Treatment $\\Delta$ = 10%
   Treatment $\\Delta$ = 20%",
   "Treatment $\\Delta$ = 10%
