@@ -4,8 +4,6 @@ source("./extension/platform/results_scenario_b.R")
 library(knitr)
 library(kableExtra)
 
-# [extension] for tabulation [cell indicies (a) to be adjusted once table visualization is defined]
-
 ##############
 # Scenario A #
 ##############
@@ -138,82 +136,10 @@ library(kableExtra)
 #(a6.20<-discovery_9_2[[2]][2]) # TDR
 
 
-###########################################################
-### Temporary break in code for intermediate test table ###
-###########################################################
-{
-Column5 = round(c(a1.5, a2.5, a3.5, a4.5, NA, NA, a5.5, a6.5, a7.5, a8.5, a9.5, a10.5, a11.5, a12.5, a13.5, a14.5, NA, NA),4)
-Column6 = round(c(a1.6, a2.6, a3.6, a4.6, NA, NA, a5.6, a6.6, a7.6, a8.6, a9.6, a10.6, a11.6, a12.6, a13.6, a14.6, NA, NA),4)
+##########################
+### Continue from here ###
+##########################
 
-n_rows <- 18
-n_cols <- 19
-
-df <- as.data.frame(matrix("", nrow = n_rows, ncol = n_cols), stringsAsFactors = FALSE)
-
-# Define column names (this will be our third header row)
-# First column for row names and then columns 2-19
-colnames(df) <- c("Response Rate (%)", rep(c("10","30"), 9))
-
-df[, 6] <- Column5*100
-df[, 7] <- Column6*100
-
-# Define row names:
-df[,1] <- c(
-              "Type I Error (%) (Powered to $\\Delta$ = 10%)", 
-  "Type I Error (%) (Powered to $\\Delta$ = 20%)",
-  "Power (%) ($\\Delta$ = 10%)",
-  "Power (%) ($\\Delta$ = 20%)",
-  "Treatment no effect \\\\
-  Treatment no effect",
-  "Treatment no effect \\\\
-  Treatment no effect",
-  "Treatment no effect
-  Treatment $\\Delta$ = 10%",
-  "Treatment no effect
-  Treatment $\\Delta$ = 10%",
-  "Treatment no effect
-  Treatment $\\Delta$ = 20%",
-  "Treatment no effect
-  Treatment $\\Delta$ = 20%",
-  "Treatment $\\Delta$ = 10%
-  Treatment $\\Delta$ = 10%",
-  "Treatment $\\Delta$ = 10%
-  Treatment $\\Delta$ = 10%",
-  "Treatment $\\Delta$ = 10%
-  Treatment $\\Delta$ = 20%",
-  "Treatment $\\Delta$ = 10%
-  Treatment $\\Delta$ = 20%",
-  "Treatment $\\Delta$ = 10%
-  Treatment $\\Delta$ = 20%",
-  "Treatment $\\Delta$ = 10%
-  Treatment $\\Delta$ = 20%",
-  "Treatment $\\Delta$ = 20%
-  Treatment $\\Delta$ = 20%",
-  "Treatment $\\Delta$ = 20%
-  Treatment $\\Delta$ = 20%"
-)
-
-# Define header rows:
-# Top header row: 4 cells. The first cell is empty, the other three each span 6 columns.
-top_header <- c(" " = 1, "Two-Trial" = 4, "Platform (same time)" = 8, "Platform (different times)" = 6)
-
-# Middle header row: 10 cells. The first cell is empty, the other nine each span 2 columns.
-middle_header <- c("Adjustment" = 1, "Unadjusted" = 2, "Bonferroni Correction" = 2, 
-                   "Unadjusted" = 2, "Strategy 2" = 2, "Strategy 3" = 2, "Strategy 4" = 2, 
-                   "Unadjusted" = 2, "Bonferroni" = 2, "LOND" = 2)
-
-
-# Create an HTML preview table so you can view and adjust it in RStudio
-table_html <- kable(df, format = "html", caption = "Results table", align = "c") %>%
-  add_header_above(middle_header) %>%
-  add_header_above(top_header) %>%
-  collapse_rows(columns = 1, valign = "middle") %>% 
-  kable_styling(full_width = FALSE)
-
-
-# Display the table in RStudio's Viewer
-table_html
-}
 
 # Strategy 2: Adjusted to account for single pivotal study
 (discovery_1_1_st2[[2]][1]) # FDR A=0/B=0 10%/10%
@@ -339,5 +265,204 @@ table_html
 # Scenario B #
 ##############
 
+# Type 1 error
+
+# Unadjusted
+(a1.14 <- type_1_powered_1_B[[2]][1]) # A 10%/10%
+#(a52 <- type_1_powered_1_B[[2]][2]) # B                              
+(a1.15 <- type_1_powered_2_B[[2]][1]) # A 10%/30%
+#(a52 <- type_1_powered_2_B[[2]][2]) # B                              
+(a2.14 <- type_1_powered_3_B[[2]][1]) # A 20%/10%
+#(a52 <- type_1_powered_3_B[[2]][2]) # B                         
+(a2.15 <- type_1_powered_4_B[[2]][1]) # A 20%/30%
+#(a52 <- type_1_powered_4_B[[2]][2]) # B                      
+
+# Bonferoni correction
+(a1.16 <- type_1_powered_1_bonf_B[[2]][1]) # A 10%/10%
+#(a52 <- type_1_powered_1_bonf_B[[2]][2]) # B
+(a1.17 <- type_1_powered_2_bonf_B[[2]][1]) # A 10%/30%
+#(a52 <- type_1_powered_2_bonf_B[[2]][2]) # B
+(a2.16 <- type_1_powered_3_bonf_B[[2]][1]) # A 20%/10%
+#(a52<- type_1_powered_3_bonf_B[[2]][2]) # B
+(a2.17 <- type_1_powered_4_bonf_B[[2]][1]) # A 20%/30%
+#(a52<- type_1_powered_4_bonf_B[[2]][2]) # B
+
+# LOND
+(a1.18 <- type_1_powered_1_lond_B[[2]][1]) # A 10%/10%
+#(a52<- type_1_powered_1_lond_B[[2]][2]) # B
+(a1.19 <- type_1_powered_2_lond_B[[2]][1]) # A 10%/30%
+#(a52<- type_1_powered_2_lond_B[[2]][2]) # B
+(a2.18 <- type_1_powered_3_lond_B[[2]][1]) # A 20%/10%
+#(a52<- type_1_powered_3_lond_B[[2]][2]) # B
+(a2.19 <- type_1_powered_4_lond_B[[2]][1]) # A 20%/30%
+#(a52<- type_1_powered_4_lond_B[[2]][2]) # B
+
+# power
+
+# Unadjusted
+(a3.14 <- power_1_B[[2]][1]) # A 10%/10%
+#(a62 <- power_1_B[[2]][2]) # B               
+(a3.15 <- power_2_B[[2]][1]) # A 10%/30%
+#(a62 <- power_2_B[[2]][2]) # B               
+(a4.14 <- power_3_B[[2]][1]) # A 20%/10%
+#(a82 <- power_3_B[[2]][2]) # B               
+(a4.15 <- power_4_B[[2]][1]) # A 20%/30%
+#(a82 <- power_4_B[[2]][2]) # B               
+
+# Bonferroni correction
+(a3.16 <- power_1_bonf_B[[2]][1]) # A 10%/10%
+#(a62 <- power_1_bonf_B[[2]][2]) # B               
+(a3.17 <- power_2_bonf_B[[2]][1]) # A 10%/30%
+#(a62 <- power_2_bonf_B[[2]][2]) # B               
+(a4.16 <- power_3_bonf_B[[2]][1]) # A 20%/10%
+#(a82 <- power_3_bonf_B[[2]][2]) # B               
+(a4.17 <- power_4_bonf_B[[2]][1]) # A 20%/30%
+#(a82 <- power_4_bonf_B[[2]][2]) # B               
+
+# LOND
+(a3.18 <- power_1_lond_B[[2]][1]) # A 10%/10%
+#(a62 <- power_1_lond_B[[2]][2]) # B               
+(a3.19 <- power_2_lond_B[[2]][1]) # A 10%/30%
+#(a62 <- power_2_lond_B[[2]][2]) # B               
+(a4.18 <- power_3_lond_B[[2]][1]) # A 20%/10%
+#(a82 <- power_3_lond_B[[2]][2]) # B               
+(a4.19 <- power_4_lond_B[[2]][1]) # A 20%/30%
+#(a82 <- power_4_lond_B[[2]][2]) # B               
+
+# FDR TDR
+# [include]
+
+
+{
+  # Scenario A
+  column5 = round(c(a1.5, a2.5, a3.5, a4.5, NA, NA, a5.5, a6.5, a7.5, a8.5, a9.5, a10.5, a11.5, a12.5, a13.5, a14.5, NA, NA),4)
+  column6 = round(c(a1.6, a2.6, a3.6, a4.6, NA, NA, a5.6, a6.6, a7.6, a8.6, a9.6, a10.6, a11.6, a12.6, a13.6, a14.6, NA, NA),4)
+  column7 = round(c(a1.7, a2.7, a3.7, a4.7, rep(NA,14)),4)
+  column8 = round(c(a1.8, a2.8, a3.8, a4.8, rep(NA,14)),4)
+  column9 = round(c(a1.9, a2.9, a3.9, a4.9, rep(NA,14)),4)
+  column10 = round(c(a1.10, a2.10, a3.10, a4.10, rep(NA,14)),4)
+  column11 = round(c(a1.11, a2.11, a3.11, a4.11, rep(NA,14)),4)
+  column12 = round(c(a1.12, a2.12, a3.12, a4.12, rep(NA,14)),4)
+  
+  # Scenario B
+  column13 = round(c(a1.14, a2.14, a3.14, a4.14, rep(NA,14)),4)
+  column14 = round(c(a1.15, a2.15, a3.15, a4.15, rep(NA,14)),4)
+  column15 = round(c(a1.16, a2.16, a3.16, a4.16, rep(NA,14)),4)
+  column16 = round(c(a1.17, a2.17, a3.17, a4.17, rep(NA,14)),4)
+  column17 = round(c(a1.18, a2.18, a3.18, a4.18, rep(NA,14)),4)
+  column18 = round(c(a1.19, a2.19, a3.19, a4.19, rep(NA,14)),4)
+  
+  n_rows <- 18
+  n_cols <- 20 # 2 first columns are row names
+  
+  df <- as.data.frame(matrix("", nrow = n_rows, ncol = n_cols), stringsAsFactors = FALSE)
+  
+  # Define column names (this will be our third header row)
+  # First column for row names and then columns 2-19
+  colnames(df) <- c("Response Rate (%)", "",rep(c("10","30"), 9))
+  
+  df[, 7] <- column5*100
+  df[, 8] <- column6*100
+  df[, 9] <- column7*100
+  df[, 10] <- column8*100
+  df[, 11] <- column9*100
+  df[, 12] <- column10*100
+  df[, 13] <- column11*100
+  df[, 14] <- column12*100
+  
+  df[, 15] <- column13*100
+  df[, 16] <- column14*100
+  df[, 17] <- column15*100
+  df[, 18] <- column16*100
+  df[, 19] <- column17*100
+  df[, 20] <- column18*100
+  
+  # Define row names:
+  df[,1] <- c(
+    "Type I Error (%) (Powered to $\\Delta = 10%$)", 
+    "Type I Error (%) (Powered to $\\Delta = 20%$)",
+    "Power (%) ($\\Delta = 10%$)",
+    "Power (%) ($\\Delta = 20%$)",
+    "Treatment no effect \\
+  Treatment no effect ",
+    "Treatment no effect \\
+  Treatment no effect ",
+    "Treatment no effect \\
+  Treatment $\\Delta = 10%$",
+    "Treatment no effect \\
+  Treatment $\\Delta = 10%$",
+    "Treatment no effect \\
+  Treatment $\\Delta = 20%$",
+    "Treatment no effect \\
+  Treatment $\\Delta = 20%$",
+    "Treatment $\\Delta = 10%$ \\
+  Treatment $\\Delta = 10%$",
+    "Treatment $\\Delta = 10%$ \\
+  Treatment $\\Delta = 10%$",
+    "Treatment $\\Delta = 10%$ \\
+  Treatment $\\Delta = 20%$",
+    "Treatment $\\Delta = 10%$ \\
+  Treatment $\\Delta = 20%$",
+    "Treatment $\\Delta = 10%$ \\
+  Treatment $\\Delta = 20%$",
+    "Treatment $\\Delta = 10%$ \\
+  Treatment $\\Delta = 20%$",
+    "Treatment $\\Delta = 20%$ \\
+  Treatment $\\Delta = 20%$",
+    "Treatment $\\Delta = 20%$ \\
+  Treatment $\\Delta = 20%$"
+  )
+  
+  df[,2] <- c(
+    " ", 
+    " ",
+    " ",
+    " ",
+    "FDR",
+    "TDR",
+    "FDR",
+    "TDR",
+    "FDR",
+    "TDR",
+    "FDR",
+    "TDR",
+    "FDR",
+    "TDR",
+    "FDR",
+    "TDR",
+    "FDR",
+    "TDR"
+  )
+  
+  # Define header rows:
+  # Top header row: 4 cells. The first cell is empty, the other three each span 6 columns.
+  top_header <- c(" " = 2, "Two-Trial" = 4, "Platform (same time)" = 8, "Platform (different times)" = 6)
+  
+  # Middle header row: 10 cells. The first cell is empty, the other nine each span 2 columns.
+  middle_header <- c("Adjustment" = 2, "Unadjusted" = 2, "Bonferroni Correction" = 2, 
+                     "Unadjusted" = 2, "Strategy 2" = 2, "Strategy 3" = 2, "Strategy 4" = 2, 
+                     "Unadjusted" = 2, "Bonferroni" = 2, "LOND" = 2)
+  
+  
+  # Create an HTML preview table
+  table_html <- kable(df, format = "html", caption = "Results table", align = "c", escape = FALSE) %>%
+    add_header_above(middle_header) %>%
+    add_header_above(top_header) %>%
+    collapse_rows(columns = 1, valign = "middle") %>% 
+    kable_styling(full_width = FALSE)
+  
+  # display table
+  table_html
+  
+  # Create latex code 
+  table_latex <- kable(df, format = "latex", caption = "Results table", align = "c", escape = FALSE) %>%
+    add_header_above(middle_header) %>%
+    add_header_above(top_header) %>%
+    collapse_rows(columns = 1, valign = "middle") %>% 
+    kable_styling(full_width = FALSE)
+  
+  # display table
+  table_latex
+}
 
 

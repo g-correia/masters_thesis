@@ -112,7 +112,7 @@ type_1_powered_4 <- rejection_rate(treat_response_A = 0.3,
   
 }
 
-# 2.1.1 C) Strategy 3: Bonferoni correction
+# 2.1.1 C) Strategy 3: Bonferroni correction
 # Powered to Δ = 10% or Δ = 20%, with baseline responses of 10% or 30%.
 {
 # Powered to Δ = 10% and with baseline response 10%
@@ -160,7 +160,7 @@ type_1_powered_4_st3 <- rejection_rate(treat_response_A = 0.3,
                                    scenario = "A")
 }
 
-# 2.1.1 D) Strategy 4: Adjusted to account for single pivotal study and Boferroni correction
+# 2.1.1 D) Strategy 4: Adjusted to account for single pivotal study and Bonferroni correction
 {
   # Powered to Δ = 10% and with baseline response 10%
   set.seed(123)
@@ -312,7 +312,7 @@ power_4 <- rejection_rate(treat_response_A = 0.5,
   
 }
 
-# 2.1.2 C) Strategy 3: Bonferoni correction
+# 2.1.2 C) Strategy 3: Bonferroni correction
 # Powered to Δ = 10% or Δ = 20%, with baseline responses of 10% or 30%.
 {
 # Δ = 10%, baseline response rate of 10%:
@@ -360,7 +360,7 @@ power_4_st3 <- rejection_rate(treat_response_A = 0.5,
                           scenario = "A")
 }
 
-# 2.1.2 D) Strategy 4: Adjusted to account for single pivotal study and Boferroni correction
+# 2.1.2 D) Strategy 4: Adjusted to account for single pivotal study and Bonferroni correction
 {
   # Δ = 10%, baseline response rate of 10%:
   set.seed(123)
@@ -884,7 +884,7 @@ discovery_9_1_st2 <- discovery_rate(treat_response_A = 0.3,
 discovery_9_2_st2<-discovery_9_1_st2
 }
 
-# 2.1.3 C) Strategy 3: Bonferoni correction
+# 2.1.3 C) Strategy 3: Bonferroni correction
 {
   # 1/9 Treatment A has no true effect (treatment effect, Δ = 0%) and Treatment B has no true effect (treatment effect, Δ = 0%).
   # Powered to Δ = 10% and with baseline response 10%: 1 / 0
@@ -1120,7 +1120,7 @@ discovery_9_2_st2<-discovery_9_1_st2
   discovery_9_2_st3<-discovery_9_1_st3
 }
 
-# 2.1.3 D) Strategy 4: Adjusted to account for single pivotal study and Boferroni correction
+# 2.1.3 D) Strategy 4: Adjusted to account for single pivotal study and Bonferroni correction
 {
 
   # 1/9 Treatment A has no true effect (treatment effect, Δ = 0%) and Treatment B has no true effect (treatment effect, Δ = 0%).
