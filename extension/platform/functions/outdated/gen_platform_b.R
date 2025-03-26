@@ -3,11 +3,17 @@ gen_platform_b <-
            treat_response_B,
            baseline_response,
            n_arm,
-           alpha) {
-
+           alpha,
+           correction="unadjusted") {
+    
+    if(correction != "unadjusted" & 
+       correction != "bonferroni" &
+       correction != "lond"){
+      stop("Error in correction method. Can only be 'unadjusted' (default), 'bonferroni' or 'lond'")
+    }
     
     # Starting alpha vector
-    alpha_unadjusted <- c(alpha, alpha)
+    new_alpha <- c(alpha, alpha)
     
     # Defining n_A's, number of patients per section in time:
     n_A1 <- n_arm
@@ -41,23 +47,29 @@ gen_platform_b <-
     # Extract p-values
     pvals <- c(test_1$p.value, test_2$p.value)
     
-    # Set alphas for each adjustment strategy
-    alpha_bonf <- alpha_unadjusted/2
-    
-    lond_result <- onlineFDR::LOND(pvals, alpha = 0.025, dep = TRUE)
+    if(correction == "bonferroni") {
+      new_alpha <- new_alpha/2
       
-    alpha_lond <- lond_result$alphai
+    } else if (correction == "lond") {
+      # Apply LOND correction (for dependent p-values):
+      
+      lond_result <- onlineFDR::LOND(pvals, alpha = 0.025, dep = TRUE)
+      
+      new_alpha <- lond_result$alphai
+      
+    } else {
+      # Undjusted
+      new_alpha <- c(alpha, alpha)
+      
+    }
+    
     
     # Return p-values, treatment probabilities and boundaries
     return(list(
       pval_1 = pvals[1],
       pval_2 = pvals[2],
-      alpha_1_unadjusted = alpha_unadjusted[1],
-      alpha_2_unadjusted = alpha_unadjusted[2],
-      alpha_1_bonf = alpha_bonf[1],
-      alpha_2_bonf = alpha_bonf[2],
-      alpha_1_lond = alpha_lond[1],
-      alpha_2_lond = alpha_lond[2]
+      alpha_1 = new_alpha[1],
+      alpha_2 = new_alpha[2]
     ))
     
   }
@@ -68,4 +80,5 @@ gen_platform_b(
   treat_response_B = 0.1,
   baseline_response = 0.1,
   n_arm = 300,
-  alpha = 0.025)
+  alpha = 0.025,
+  correction = "lond")

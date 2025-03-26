@@ -1,5 +1,5 @@
 # ----------------------------------------------------------
-# INPUTS COMMON TO ALL THREE CASES
+# INPUTS COMMON TO BOTH CASES
 # ----------------------------------------------------------
 # alpha = one-sided significance level.
 # treat_response_A = true treatment response (treatment A) [proportion].
