@@ -30,23 +30,17 @@ discovery_rate <- function(treat_response_A,
   true_discovery_st5 <- c()
   total_rejections_st5 <- 0
   
-  false_discovery_bonf <- c()
-  true_discovery_bonf <- c()
-  total_rejections_bonf <- 0
+  false_discovery_st6 <- c()
+  true_discovery_st6 <- c()
+  total_rejections_st6 <- 0
   
-  false_discovery_lond <- c()
-  true_discovery_lond <- c()
-  total_rejections_lond <- 0
-  
-  
-    
     if (scenario == "A") {
       
       
       # Adjust to account for single pivotal study
       alpha_strategy_2 <- alpha/4
       
-      # Bonferroni correction
+      # Bonferroni corrections (also for trategy 6)
       alpha_strategy_3  <- alpha/2
       
       # Adjust to account for single pivotal study and apply bonferroni correction
@@ -73,6 +67,10 @@ discovery_rate <- function(treat_response_A,
         false_discovery_count_st5 <- 0
         true_discovery_count_st5 <- 0
         total_rejections_count_st5 <- 0
+        
+        false_discovery_count_st6 <- 0
+        true_discovery_count_st6 <- 0
+        total_rejections_count_st6 <- 0
         
       trial <- gen_platform_a(
         treat_response_A,
@@ -255,6 +253,41 @@ if (total_rejections_count_st5 > 0) { # if there were rejections, calculate the 
   false_discovery_st5 <- c(false_discovery_st5, NA)
   true_discovery_st5 <- c(true_discovery_st5, NA)
 }
+      
+      if (trial$pval_A_prop_test < alpha_strategy_3) { 
+        total_rejections_count_st6 <- total_rejections_count_st6 + 1
+        
+        if (treat_response_A > baseline_response) {
+          # if treatment A has positive true effect, rejection of null hypothesis is a true finding
+          true_discovery_count_st6 <- true_discovery_count_st6 + 1
+        } else { # otherwise if A has no true effect, it is a false finding
+          false_discovery_count_st6 <- false_discovery_count_st6 + 1
+        }
+      }
+      
+      if (trial$pval_B_prop_test < alpha_strategy_3) { 
+        total_rejections_count_st6 <- total_rejections_count_st6 + 1
+        
+        if (treat_response_B > baseline_response) {
+          # if treatment B has positive true effect, rejection of null hypothesis is a true finding
+          true_discovery_count_st6 <- true_discovery_count_st6 + 1
+          
+        } else { # otherwise if B has no true effect, it is a false finding
+          false_discovery_count_st6 <- false_discovery_count_st6 + 1
+        }
+      }
+      
+      
+      if (total_rejections_count_st6 > 0) { # if there were rejections, calculate the false discovery rate of the trial
+        false_discovery_st6 <- c(false_discovery_st6,
+                                 false_discovery_count_st6 / total_rejections_count_st6)
+        true_discovery_st6 <- c(true_discovery_st6, 
+                                true_discovery_count_st6 / total_rejections_count_st6)
+      } else { # otherwise, we count no discoveries
+        false_discovery_st6 <- c(false_discovery_st6, NA)
+        true_discovery_st6 <- c(true_discovery_st6, NA)
+      }
+      
 
    }  
       # Average the false discovery rates across trials
@@ -273,9 +306,28 @@ if (total_rejections_count_st5 > 0) { # if there were rejections, calculate the 
       discoveries_st5 <- c("false discovery rate (strategy 5)" = mean(false_discovery_st5, na.rm = T),
                            "true discovery rate (strategy 5)" = mean(true_discovery_st5, na.rm = T))
       
-      return(list(discoveries_unadjusted, discoveries_st2, discoveries_st3, discoveries_st4, discoveries_st5))
+      discoveries_st6 <- c("false discovery rate (strategy 6)" = mean(false_discovery_st6, na.rm = T),
+                           "true discovery rate (strategy 6)" = mean(true_discovery_st6, na.rm = T))
+      
+      return(list(discoveries_unadjusted, discoveries_st2, discoveries_st3, discoveries_st4, discoveries_st5, discoveries_st6))
       
      } else {
+       
+       false_discovery_pivotal <- c()
+       true_discovery_pivotal <- c()
+       total_rejections_pivotal <- 0
+       
+       false_discovery_bonf <- c()
+       true_discovery_bonf <- c()
+       total_rejections_bonf <- 0
+       
+       false_discovery_bonf_pivotal <- c()
+       true_discovery_bonf_pivotal <- c()
+       total_rejections_bonf_pivotal <- 0
+       
+       false_discovery_lond <- c()
+       true_discovery_lond <- c()
+       total_rejections_lond <- 0
       
       for(i in 1:iterations){
         
@@ -283,9 +335,17 @@ if (total_rejections_count_st5 > 0) { # if there were rejections, calculate the 
         true_discovery_count_unadjusted <- 0
         total_rejections_count_unadjusted <- 0
         
+        false_discovery_count_pivotal <- 0
+        true_discovery_count_pivotal <- 0
+        total_rejections_count_pivotal <- 0
+        
         false_discovery_count_bonf <- 0
         true_discovery_count_bonf <- 0
         total_rejections_count_bonf <- 0
+        
+        false_discovery_count_bonf_pivotal <- 0
+        true_discovery_count_bonf_pivotal <- 0
+        total_rejections_count_bonf_pivotal <- 0
         
         false_discovery_count_lond <- 0
         true_discovery_count_lond <- 0
@@ -333,6 +393,40 @@ if (total_rejections_count_st5 > 0) { # if there were rejections, calculate the 
       true_discovery_unadjusted <- c(true_discovery_unadjusted, NA)
     }
       
+      if (trial$pval_1 < trial$alpha_1_pivotal) { 
+        total_rejections_count_pivotal <- total_rejections_count_pivotal + 1
+        
+        if (treat_response_A > baseline_response) {
+          # if treatment A has positive true effect, rejection of null hypothesis is a true finding
+          true_discovery_count_pivotal <- true_discovery_count_pivotal + 1
+        } else { # otherwise if A has no true effect, it is a false finding
+          false_discovery_count_pivotal <- false_discovery_count_pivotal + 1
+        }
+      }
+      
+      if (trial$pval_2 < trial$alpha_2_pivotal) { 
+        total_rejections_count_pivotal <- total_rejections_count_pivotal + 1
+        
+        
+        if (treat_response_B > baseline_response) {
+          # if treatment B has positive true effect, rejection of null hypothesis is a true finding
+          true_discovery_count_pivotal <- true_discovery_count_pivotal + 1
+          
+        } else { # otherwise if B has no true effect, it is a false finding
+          false_discovery_count_pivotal <- false_discovery_count_pivotal + 1
+        }
+      }
+      
+      if (total_rejections_count_pivotal > 0) { # if there were rejections, calculate the false discovery rate of the trial
+        false_discovery_pivotal <- c(false_discovery_pivotal, 
+                                        false_discovery_count_pivotal / total_rejections_count_pivotal)
+        true_discovery_pivotal <- c(true_discovery_pivotal, 
+                                       true_discovery_count_pivotal / total_rejections_count_pivotal)
+      } else { # otherwise, we count no discoveries
+        false_discovery_pivotal <- c(false_discovery_pivotal, NA)
+        true_discovery_pivotal <- c(true_discovery_pivotal, NA)
+      }
+      
       if (trial$pval_1 < trial$alpha_1_bonf) { 
         total_rejections_count_bonf <- total_rejections_count_bonf + 1
       
@@ -365,6 +459,41 @@ if (total_rejections_count_st5 > 0) { # if there were rejections, calculate the 
       } else { # otherwise, we count no discoveries
         false_discovery_bonf <- c(false_discovery_bonf, NA)
         true_discovery_bonf <- c(true_discovery_bonf, NA)
+      }
+
+      
+      if (trial$pval_1 < trial$alpha_1_bonf_pivotal) { 
+        total_rejections_count_bonf_pivotal <- total_rejections_count_bonf_pivotal + 1
+        
+        if (treat_response_A > baseline_response) {
+          # if treatment A has positive true effect, rejection of null hypothesis is a true finding
+          true_discovery_count_bonf_pivotal <- true_discovery_count_bonf_pivotal + 1
+        } else { # otherwise if A has no true effect, it is a false finding
+          false_discovery_count_bonf_pivotal <- false_discovery_count_bonf_pivotal + 1
+        }
+      }
+      
+      if (trial$pval_2 < trial$alpha_2_bonf_pivotal) { 
+        total_rejections_count_bonf_pivotal <- total_rejections_count_bonf_pivotal + 1
+        
+        
+        if (treat_response_B > baseline_response) {
+          # if treatment B has positive true effect, rejection of null hypothesis is a true finding
+          true_discovery_count_bonf_pivotal <- true_discovery_count_bonf_pivotal + 1
+          
+        } else { # otherwise if B has no true effect, it is a false finding
+          false_discovery_count_bonf_pivotal <- false_discovery_count_bonf_pivotal + 1
+        }
+      }
+      
+      if (total_rejections_count_bonf_pivotal > 0) { # if there were rejections, calculate the false discovery rate of the trial
+        false_discovery_bonf_pivotal <- c(false_discovery_bonf_pivotal, 
+                                  false_discovery_count_bonf_pivotal / total_rejections_count_bonf_pivotal)
+        true_discovery_bonf_pivotal <- c(true_discovery_bonf_pivotal, 
+                                 true_discovery_count_bonf_pivotal / total_rejections_count_bonf_pivotal)
+      } else { # otherwise, we count no discoveries
+        false_discovery_bonf_pivotal <- c(false_discovery_bonf_pivotal, NA)
+        true_discovery_bonf_pivotal <- c(true_discovery_bonf_pivotal, NA)
       }
       
       if (trial$pval_1 < trial$alpha_1_lond) { 
@@ -406,16 +535,26 @@ if (total_rejections_count_st5 > 0) { # if there were rejections, calculate the 
       discoveries_unadjusted <- c("false discovery rate (unadjusted)" = mean(false_discovery_unadjusted, na.rm = T),
                                   "true discovery rate (unadjusted)" = mean(true_discovery_unadjusted, na.rm = T))
       
-      discoveries_bonf <- c("false discovery rate (strategy 2)" = mean(false_discovery_bonf, na.rm = T),
-                           "true discovery rate (strategy 2)" = mean(true_discovery_bonf, na.rm = T))
+      discoveries_pivotal <- c("false discovery rate (pivotal)" = mean(false_discovery_pivotal, na.rm = T),
+                                  "true discovery rate (pivotal)" = mean(true_discovery_pivotal, na.rm = T))
+
+      discoveries_bonf <- c("false discovery rate (bonferroni)" = mean(false_discovery_bonf, na.rm = T),
+                           "true discovery rate (bonferroni)" = mean(true_discovery_bonf, na.rm = T))
       
-      discoveries_lond <- c("false discovery rate (strategy 3)" = mean(false_discovery_lond, na.rm = T),
-                           "true discovery rate (strategy 3)" = mean(true_discovery_lond, na.rm = T))
+      discoveries_bonf_pivotal <- c("false discovery rate (bonferroni + pivotal)" = mean(false_discovery_bonf_pivotal, na.rm = T),
+                            "true discovery rate (bonferroni + pivotal)" = mean(true_discovery_bonf_pivotal, na.rm = T))
       
-      return(list(discoveries_unadjusted, discoveries_bonf, discoveries_lond))
+      discoveries_lond <- c("false discovery rate (lond)" = mean(false_discovery_lond, na.rm = T),
+                           "true discovery rate (lond)" = mean(true_discovery_lond, na.rm = T))
+      
+      return(list(discoveries_unadjusted, 
+                  discoveries_pivotal,
+                  discoveries_bonf, 
+                  discoveries_bonf_pivotal,
+                  discoveries_lond))
              
              
      }
 }
 
-32*7*7
+

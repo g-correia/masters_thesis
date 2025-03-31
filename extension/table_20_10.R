@@ -47,6 +47,13 @@ source("./extension/two_trial/results.R")
   (a3.26 <- rejection_1_3_B[[3]][1]) # A 10%/10%
   (a3.27 <- rejection_1_3_B[[3]][2]) # B
   (a3.28 <- discovery_1_3_B[[3]][1])
+  (a3.29 <- rejection_1_3_B[[4]][1]) # A 10%/10%
+  (a3.30 <- rejection_1_3_B[[4]][2]) # B
+  (a3.31 <- discovery_1_3_B[[4]][1])
+  (a3.32 <- rejection_1_3_B[[5]][1]) # A 10%/10%
+  (a3.33 <- rejection_1_3_B[[5]][2]) # B
+  (a3.34 <- discovery_1_3_B[[5]][1])
+  
   
   # 2/9 Treat A: 0; Treat B: 10%
   # Powered to: Treatment effect 10%, baseline response rate 10%
@@ -91,6 +98,12 @@ source("./extension/two_trial/results.R")
   (a4.26 <- rejection_2_3_B[[3]][1]) # A 10%/10%
   (a4.27 <- rejection_2_3_B[[3]][2]) # B
   (a4.28 <- discovery_2_3_B[[3]][1])
+  (a4.29 <- rejection_2_3_B[[4]][1]) # A 10%/10%
+  (a4.30 <- rejection_2_3_B[[4]][2]) # B
+  (a4.31 <- discovery_2_3_B[[4]][1])
+  (a4.32 <- rejection_2_3_B[[5]][1]) # A 10%/10%
+  (a4.33 <- rejection_2_3_B[[5]][2]) # B
+  (a4.34 <- discovery_2_3_B[[5]][1])
   
   # 3/9 Treat A: 0; Treat B: 20%
   # Powered to: Treatment effect 10%, baseline response rate 10%
@@ -134,6 +147,12 @@ source("./extension/two_trial/results.R")
   (a5.26 <- rejection_3_3_B[[3]][1]) # A 10%/10%
   (a5.27 <- rejection_3_3_B[[3]][2]) # B
   (a5.28 <- discovery_3_3_B[[3]][1])
+  (a5.29 <- rejection_3_3_B[[4]][1]) # A 10%/10%
+  (a5.30 <- rejection_3_3_B[[4]][2]) # B
+  (a5.31 <- discovery_3_3_B[[4]][1])
+  (a5.32 <- rejection_3_3_B[[5]][1]) # A 10%/10%
+  (a5.33 <- rejection_3_3_B[[5]][2]) # B
+  (a5.34 <- discovery_3_3_B[[5]][1])
   
   # 4/9 Treat A: 10%; Treat B: 0
   # Powered to: Treatment effect 10%, baseline response rate 10%
@@ -178,6 +197,12 @@ source("./extension/two_trial/results.R")
   (a6.26 <- rejection_4_3_B[[3]][1]) # A 10%/10%
   (a6.27 <- rejection_4_3_B[[3]][2]) # B
   (a6.28 <- discovery_4_3_B[[3]][1])
+  (a6.29 <- rejection_4_3_B[[4]][1]) # A 10%/10%
+  (a6.30 <- rejection_4_3_B[[4]][2]) # B
+  (a6.31 <- discovery_4_3_B[[4]][1])
+  (a6.32 <- rejection_4_3_B[[5]][1]) # A 10%/10%
+  (a6.33 <- rejection_4_3_B[[5]][2]) # B
+  (a6.34 <- discovery_4_3_B[[5]][1])
   
   # 5/9 Treat A: 10%; Treat B: 10%
   # Powered to: Treatment effect 10%, baseline response rate 10%
@@ -221,6 +246,12 @@ source("./extension/two_trial/results.R")
   (a7.26 <- rejection_5_3_B[[3]][1]) # A 10%/10%
   (a7.27 <- rejection_5_3_B[[3]][2]) # B
   (a7.28 <- discovery_5_3_B[[3]][1])
+  (a7.29 <- rejection_5_3_B[[4]][1]) # A 10%/10%
+  (a7.30 <- rejection_5_3_B[[4]][2]) # B
+  (a7.31 <- discovery_5_3_B[[4]][1])
+  (a7.32 <- rejection_5_3_B[[5]][1]) # A 10%/10%
+  (a7.33 <- rejection_5_3_B[[5]][2]) # B
+  (a7.34 <- discovery_5_3_B[[5]][1])
   
   # 6/9 Treat A: 10%; Treat B: 20%
   # Powered to: Treatment effect 10%, baseline response rate 10%
@@ -265,6 +296,12 @@ source("./extension/two_trial/results.R")
   (a8.26 <- rejection_6_3_B[[3]][1]) # A 10%/10%
   (a8.27 <- rejection_6_3_B[[3]][2]) # B
   (a8.28 <- discovery_6_3_B[[3]][1])
+  (a8.29 <- rejection_6_3_B[[4]][1]) # A 10%/10%
+  (a8.30 <- rejection_6_3_B[[4]][2]) # B
+  (a8.31 <- discovery_6_3_B[[4]][1])
+  (a8.32 <- rejection_6_3_B[[5]][1]) # A 10%/10%
+  (a8.33 <- rejection_6_3_B[[5]][2]) # B
+  (a8.34 <- discovery_6_3_B[[5]][1])
   
   # 7/9 Treat A: 20%; Treat B: 0
   # Powered to: Treatment effect 10%, baseline response rate 10%
@@ -309,6 +346,12 @@ source("./extension/two_trial/results.R")
   (a9.26 <- rejection_7_3_B[[3]][1]) # A 10%/10%
   (a9.27 <- rejection_7_3_B[[3]][2]) # B
   (a9.28 <- discovery_7_3_B[[3]][1])
+  (a9.29 <- rejection_7_3_B[[4]][1]) # A 10%/10%
+  (a9.30 <- rejection_7_3_B[[4]][2]) # B
+  (a9.31 <- discovery_7_3_B[[4]][1])
+  (a9.32 <- rejection_7_3_B[[5]][1]) # A 10%/10%
+  (a9.33 <- rejection_7_3_B[[5]][2]) # B
+  (a9.34 <- discovery_7_3_B[[5]][1])
   
   # 8/9 Treat A: 20%; Treat B: 10%
   # Powered to: Treatment effect 10%, baseline response rate 10%
@@ -352,6 +395,12 @@ source("./extension/two_trial/results.R")
   (a10.26 <- rejection_8_3_B[[3]][1]) # A 10%/10%
   (a10.27 <- rejection_8_3_B[[3]][2]) # B
   (a10.28 <- discovery_8_3_B[[3]][1])
+  (a10.29 <- rejection_8_3_B[[4]][1]) # A 10%/10%
+  (a10.30 <- rejection_8_3_B[[4]][2]) # B
+  (a10.31 <- discovery_8_3_B[[4]][1])
+  (a10.32 <- rejection_8_3_B[[5]][1]) # A 10%/10%
+  (a10.33 <- rejection_8_3_B[[5]][2]) # B
+  (a10.34 <- discovery_8_3_B[[5]][1])
   
   # 9/9 Treat A: 20%; Treat B: 20%
   # Powered to: Treatment effect 10%, baseline response rate 10%
@@ -395,6 +444,12 @@ source("./extension/two_trial/results.R")
   (a11.26 <- rejection_9_3_B[[3]][1]) # A 10%/10%
   (a11.27 <- rejection_9_3_B[[3]][2]) # B
   (a11.28 <- discovery_9_3_B[[3]][1])
+  (a11.29 <- rejection_9_3_B[[4]][1]) # A 10%/10%
+  (a11.30 <- rejection_9_3_B[[4]][2]) # B
+  (a11.31 <- discovery_9_3_B[[4]][1])
+  (a11.32 <- rejection_9_3_B[[5]][1]) # A 10%/10%
+  (a11.33 <- rejection_9_3_B[[5]][2]) # B
+  (a11.34 <- discovery_9_3_B[[5]][1])
   
 }
 # Table:

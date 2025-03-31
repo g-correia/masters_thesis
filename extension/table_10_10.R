@@ -414,7 +414,7 @@ second_header <- c(" " = 2, "Unadjusted" = 2,
                    "Unadjusted" = 3, "Strategy 2" = 3, "Strategy 3" = 3, "Strategy 4" = 3, "Strategy 5" = 3, 
                    "Unadjusted" = 3, "Bonferroni" = 3, "LOND" = 3)
 
-third_header <- c(" " = 2, "Rejection Rate (%)" = 2, rep(c("Rejection Rate (%)" = 2,		"FDR (%)" = 1), 8))
+third_header <- c(" " = 2, "RR (%)" = 2, rep(c("RR (%)" = 2,		"FDR (%)" = 1), 8))
 
 
 df[,1] <- c("$\\Delta_A (\\%)$",

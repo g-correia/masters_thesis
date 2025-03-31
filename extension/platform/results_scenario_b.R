@@ -1,7 +1,7 @@
 source("./extension/platform/functions/rejection_rate.R")
 source("./extension/platform/functions/discovery_rate.R")
 
-it <- 100000
+it <- 10000
 
 ##########################################################################
 ###                         2 PLATFORM TRIAL                           ###
@@ -33,7 +33,7 @@ it <- 100000
   rejection_1_2_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -79,7 +79,7 @@ it <- 100000
   rejection_2_2_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -124,7 +124,7 @@ it <- 100000
   rejection_3_2_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -168,7 +168,7 @@ it <- 100000
   rejection_4_2_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -214,7 +214,7 @@ it <- 100000
   rejection_5_2_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -258,7 +258,7 @@ it <- 100000
   rejection_6_2_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -303,7 +303,7 @@ it <- 100000
   rejection_7_2_B <- rejection_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -347,7 +347,7 @@ it <- 100000
   rejection_8_2_B <- rejection_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -393,7 +393,7 @@ it <- 100000
   rejection_9_2_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -465,7 +465,7 @@ it <- 100000
   discovery_2_2_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -509,7 +509,7 @@ it <- 100000
   discovery_3_2_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -553,7 +553,7 @@ it <- 100000
   discovery_4_2_B <- discovery_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -599,7 +599,7 @@ it <- 100000
   discovery_5_2_B <- discovery_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -643,7 +643,7 @@ it <- 100000
   discovery_6_2_B <- discovery_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -688,7 +688,7 @@ it <- 100000
   discovery_7_2_B <- discovery_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -732,7 +732,7 @@ it <- 100000
   discovery_8_2_B <- discovery_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 477,
+                                    n_arm = 476,
                                     alpha = 0.025,
                                     
                                     iterations = it,
