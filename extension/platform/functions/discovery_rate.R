@@ -254,7 +254,7 @@ if (total_rejections_count_st5 > 0) { # if there were rejections, calculate the 
   true_discovery_st5 <- c(true_discovery_st5, NA)
 }
       
-      if (trial$pval_A_prop_test < alpha_strategy_3) { 
+      if (trial$pval_A_dunnett < alpha_strategy_3) { 
         total_rejections_count_st6 <- total_rejections_count_st6 + 1
         
         if (treat_response_A > baseline_response) {
@@ -265,7 +265,7 @@ if (total_rejections_count_st5 > 0) { # if there were rejections, calculate the 
         }
       }
       
-      if (trial$pval_B_prop_test < alpha_strategy_3) { 
+      if (trial$pval_B_dunnett < alpha_strategy_3) { 
         total_rejections_count_st6 <- total_rejections_count_st6 + 1
         
         if (treat_response_B > baseline_response) {
