@@ -391,8 +391,8 @@ it <- 10000
   
   # Δ = 10%, baseline response rate of 30%:
   set.seed(123)
-  rejection_9_2 <- rejection_rate(treat_response_A = 0.4,
-                                  treat_response_B = 0.4,
+  rejection_9_2 <- rejection_rate(treat_response_A = 0.5,
+                                  treat_response_B = 0.5,
                                   baseline_response = 0.3,
                                   n_arm = arm_size_G[2],
                                   alpha = 0.025,

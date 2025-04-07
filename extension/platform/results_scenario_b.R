@@ -378,10 +378,10 @@ it <- 10000
   
   # 9/9 Treatment A has treatment effect (Δ) of 20% vs Treatment B has treatment effect (Δ) of 20%
   
-  # Δ = 10%, baseline response rate of 10%:
+  # Powered to Δ = 10%, baseline response rate of 10%:
   set.seed(123)
-  rejection_9_1_B <- rejection_rate(treat_response_A = 0.2,
-                                    treat_response_B = 0.2,
+  rejection_9_1_B <- rejection_rate(treat_response_A = 0.3,
+                                    treat_response_B = 0.3,
                                     baseline_response = 0.1,
                                     n_arm = sample_size_G[1],
                                     alpha = 0.025,
@@ -389,17 +389,17 @@ it <- 10000
                                     iterations = it,
                                     scenario = "B")
   
-  # Δ = 10%, baseline response rate of 30%:
+  # Powered to Δ = 10%, baseline response rate of 30%:
   set.seed(123)
-  rejection_9_2_B <- rejection_rate(treat_response_A = 0.4,
-                                    treat_response_B = 0.4,
+  rejection_9_2_B <- rejection_rate(treat_response_A = 0.5,
+                                    treat_response_B = 0.5,
                                     baseline_response = 0.3,
                                     n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
                                     scenario = "B")
-  # Δ = 20%, baseline response rate of 10%:
+  # Powered to Δ = 20%, baseline response rate of 10%:
   set.seed(123)
   rejection_9_3_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.3,
@@ -410,7 +410,7 @@ it <- 10000
                                     iterations = it,
                                     scenario = "B")
   
-  # Δ = 20%, baseline response rate of 30%:
+  # Powered to Δ = 20%, baseline response rate of 30%:
   set.seed(123)
   rejection_9_4_B <- rejection_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.5,

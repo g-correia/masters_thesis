@@ -1,6 +1,6 @@
 source("./extension/two_trial/functions/successful_trials_extension.R")
 
-it <- 100000
+it <- 10000
 
 # 1/9 Treatment A has no true effect (treatment effect, Δ = 0%) and
 # Treatment B has no true effect (treatment effect, Δ = 0%) [type I error].
@@ -12,7 +12,7 @@ two_trial_1_1 <- successful_trials_extension(
   treat_response_B = 0.1,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 266,
+  n_arm = arm_sizes_G[1],
   iterations = it,
   alpha = 0.025
 )
@@ -23,7 +23,7 @@ two_trial_1_2 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 477,
+  n_arm = arm_sizes_G[2],
   iterations = it,
   alpha = 0.025
 )
@@ -35,7 +35,7 @@ two_trial_1_3 <- successful_trials_extension(
   treat_response_B = 0.1,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 82,
+  n_arm = arm_sizes_G[3],
   iterations = it,
   alpha = 0.025
 )
@@ -47,7 +47,7 @@ two_trial_1_4 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 124,
+  n_arm = arm_sizes_G[4],
   iterations = it,
   alpha = 0.025
 )
@@ -61,7 +61,7 @@ two_trial_2_1 <- successful_trials_extension(
   treat_response_B = 0.2,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 266,
+  n_arm = arm_sizes_G[1],
   alpha = 0.025,
   iterations = it
 )
@@ -73,7 +73,7 @@ two_trial_2_2 <- successful_trials_extension(
   treat_response_B = 0.4,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 477,
+  n_arm = arm_sizes_G[2],
   alpha = 0.025,
   iterations = it
 )
@@ -85,7 +85,7 @@ two_trial_2_3 <- successful_trials_extension(
   treat_response_B = 0.2,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 82,
+  n_arm = arm_sizes_G[3],
   alpha = 0.025,
   
   iterations = it
@@ -98,7 +98,7 @@ two_trial_2_4 <- successful_trials_extension(
   treat_response_B = 0.4,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 124,
+  n_arm = arm_sizes_G[4],
   alpha = 0.025,
   
   iterations = it
@@ -112,7 +112,7 @@ two_trial_3_1 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 266,
+  n_arm = arm_sizes_G[1],
   alpha = 0.025,
   iterations = it
 )
@@ -124,7 +124,7 @@ two_trial_3_2 <- successful_trials_extension(
   treat_response_B = 0.5,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 477,
+  n_arm = arm_sizes_G[2],
   alpha = 0.025,
   
   iterations = it
@@ -136,7 +136,7 @@ two_trial_3_3 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 82,
+  n_arm = arm_sizes_G[3],
   alpha = 0.025,
   
   iterations = it
@@ -149,7 +149,7 @@ two_trial_3_4 <- successful_trials_extension(
   treat_response_B = 0.5,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 124,
+  n_arm = arm_sizes_G[4],
   alpha = 0.025,
   
   iterations = it
@@ -163,7 +163,7 @@ two_trial_4_1 <- successful_trials_extension(
   treat_response_B = 0.1,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 266,
+  n_arm = arm_sizes_G[1],
   alpha = 0.025,
   
   iterations = it
@@ -176,7 +176,7 @@ two_trial_4_2 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 477,
+  n_arm = arm_sizes_G[2],
   alpha = 0.025,
   
   iterations = it
@@ -189,7 +189,7 @@ two_trial_4_3 <- successful_trials_extension(
   treat_response_B = 0.1,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 82,
+  n_arm = arm_sizes_G[3],
   alpha = 0.025,
   
   iterations = it
@@ -202,7 +202,7 @@ two_trial_4_4 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 124,
+  n_arm = arm_sizes_G[4],
   alpha = 0.025,
   
   iterations = it
@@ -217,7 +217,7 @@ two_trial_5_1 <- successful_trials_extension(
   treat_response_B = 0.2,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 266,
+  n_arm = arm_sizes_G[1],
   alpha = 0.025,
   
   iterations = it
@@ -230,7 +230,7 @@ two_trial_5_2 <- successful_trials_extension(
   treat_response_B = 0.4,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 477,
+  n_arm = arm_sizes_G[2],
   alpha = 0.025,
   
   iterations = it
@@ -242,7 +242,7 @@ two_trial_5_3 <- successful_trials_extension(
   treat_response_B = 0.2,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 82,
+  n_arm = arm_sizes_G[3],
   alpha = 0.025,
   
   iterations = it
@@ -255,7 +255,7 @@ two_trial_5_4 <- successful_trials_extension(
   treat_response_B = 0.4,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 124,
+  n_arm = arm_sizes_G[4],
   alpha = 0.025,
   
   iterations = it
@@ -269,7 +269,7 @@ two_trial_6_1 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 266,
+  n_arm = arm_sizes_G[1],
   alpha = 0.025,
   
   iterations = it
@@ -282,7 +282,7 @@ two_trial_6_2 <- successful_trials_extension(
   treat_response_B = 0.5,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 477,
+  n_arm = arm_sizes_G[2],
   alpha = 0.025,
   
   iterations = it
@@ -295,7 +295,7 @@ two_trial_6_3 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 82,
+  n_arm = arm_sizes_G[3],
   alpha = 0.025,
   
   iterations = it
@@ -308,7 +308,7 @@ two_trial_6_4 <- successful_trials_extension(
   treat_response_B = 0.5,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 124,
+  n_arm = arm_sizes_G[4],
   alpha = 0.025,
   
   iterations = it
@@ -322,7 +322,7 @@ two_trial_7_1 <- successful_trials_extension(
   treat_response_B = 0.1,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 266,
+  n_arm = arm_sizes_G[1],
   alpha = 0.025,
   
   iterations = it
@@ -335,7 +335,7 @@ two_trial_7_2 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 477,
+  n_arm = arm_sizes_G[2],
   alpha = 0.025,
   
   iterations = it
@@ -347,7 +347,7 @@ two_trial_7_3 <- successful_trials_extension(
   treat_response_B = 0.1,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 82,
+  n_arm = arm_sizes_G[3],
   alpha = 0.025,
   
   iterations = it
@@ -360,7 +360,7 @@ two_trial_7_4 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 124,
+  n_arm = arm_sizes_G[4],
   alpha = 0.025,
   
   iterations = it
@@ -374,7 +374,7 @@ two_trial_8_1 <- successful_trials_extension(
   treat_response_B = 0.2,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 266,
+  n_arm = arm_sizes_G[1],
   alpha = 0.025,
   
   iterations = it
@@ -387,7 +387,7 @@ two_trial_8_2 <- successful_trials_extension(
   treat_response_B = 0.4,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 477,
+  n_arm = arm_sizes_G[2],
   alpha = 0.025,
   
   iterations = it
@@ -400,7 +400,7 @@ two_trial_8_3 <- successful_trials_extension(
   treat_response_B = 0.2,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 82,
+  n_arm = arm_sizes_G[3],
   alpha = 0.025,
   
   iterations = it
@@ -413,7 +413,7 @@ two_trial_8_4 <- successful_trials_extension(
   treat_response_B = 0.4,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 124,
+  n_arm = arm_sizes_G[4],
   alpha = 0.025,
   
   iterations = it
@@ -428,7 +428,7 @@ two_trial_9_1 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 266,
+  n_arm = arm_sizes_G[1],
   alpha = 0.025,
   iterations = it
 )
@@ -440,7 +440,7 @@ two_trial_9_2 <- successful_trials_extension(
   treat_response_B = 0.4,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 477,
+  n_arm = arm_sizes_G[2],
   alpha = 0.025,
   
   iterations = it
@@ -452,7 +452,7 @@ two_trial_9_3 <- successful_trials_extension(
   treat_response_B = 0.3,
   baseline_response_A = 0.1,
   baseline_response_B = 0.1,
-  n_arm = 82,
+  n_arm = arm_sizes_G[3],
   alpha = 0.025,
   iterations = it
 )
@@ -464,7 +464,7 @@ two_trial_9_4 <- successful_trials_extension(
   treat_response_B = 0.5,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
-  n_arm = 124,
+  n_arm = arm_sizes_G[4],
   alpha = 0.025,
   iterations = it
 )
