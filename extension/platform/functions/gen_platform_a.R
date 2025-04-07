@@ -22,6 +22,8 @@ gen_platform_a <-
       
       # Result Dunnett's test
       pvals_dunnett <- unname(dunnett_result$control[,4])
+      effect_dunnett <- unname(dunnett_result$control[,1])
+      
       
       ## Data treatment for prop.test using same data
       
@@ -45,7 +47,9 @@ gen_platform_a <-
         pval_A_prop_test = pvals_prop_test[1],
         pval_B_prop_test = pvals_prop_test[2],
         pval_A_dunnett = pvals_dunnett[1],
-        pval_B_dunnett = pvals_dunnett[2]
+        pval_B_dunnett = pvals_dunnett[2],
+        effect_dunnett_A = effect_dunnett[1],
+        effect_dunnett_B = effect_dunnett[2]
       ))
     }
     

@@ -86,19 +86,19 @@ rejection_rate <- function(
     }
     
     # Strategy 5: Dunnett's test 
-    if ((trial$pval_A_dunnett < alpha)) {
+    if ((trial$effect_dunnett_A > 0 & trial$pval_A_dunnett/2 < alpha)) { # Dunnet's test is two-sided.
       counts_treat_a_st5 <- counts_treat_a_st5 + 1  # rejection treatment A
     }
     
-    if ((trial$pval_B_dunnett < alpha)) {
+    if ((trial$effect_dunnett_B > 0 & trial$pval_B_dunnett/2 < alpha)) { # Dunnet's test is two-sided.
       counts_treat_b_st5 <- counts_treat_b_st5 + 1 # rejection treatment B
     }
     # Strategy 6: Dunnett's test, with bonferroni correction 
-    if ((trial$pval_A_dunnett < alpha_bonf)) {
+    if ((trial$effect_dunnett_A > 0 & trial$pval_A_dunnett/2 < alpha_bonf)) {
       counts_treat_a_st6 <- counts_treat_a_st6 + 1  # rejection treatment A
     }
       
-    if ((trial$pval_B_dunnett < alpha_bonf)) {
+    if ((trial$effect_dunnett_B > 0 & trial$pval_B_dunnett/2 < alpha_bonf)) {
       counts_treat_b_st6 <- counts_treat_b_st6 + 1 # rejection treatment B
     }
   } 

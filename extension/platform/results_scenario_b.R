@@ -1,5 +1,6 @@
 source("./extension/platform/functions/rejection_rate.R")
 source("./extension/platform/functions/discovery_rate.R")
+source("sample_sizes.R")
 
 it <- 10000
 
@@ -22,7 +23,7 @@ it <- 10000
   rejection_1_1_B <- rejection_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -33,7 +34,7 @@ it <- 10000
   rejection_1_2_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -44,7 +45,7 @@ it <- 10000
   rejection_1_3_B <- rejection_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -55,7 +56,7 @@ it <- 10000
   rejection_1_4_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -68,7 +69,7 @@ it <- 10000
   rejection_2_1_B <- rejection_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -79,7 +80,7 @@ it <- 10000
   rejection_2_2_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -90,7 +91,7 @@ it <- 10000
   rejection_2_3_B <- rejection_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -101,7 +102,7 @@ it <- 10000
   rejection_2_4_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -113,7 +114,7 @@ it <- 10000
   rejection_3_1_B <- rejection_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -124,7 +125,7 @@ it <- 10000
   rejection_3_2_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -134,7 +135,7 @@ it <- 10000
   rejection_3_3_B <- rejection_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -145,7 +146,7 @@ it <- 10000
   rejection_3_4_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -157,7 +158,7 @@ it <- 10000
   rejection_4_1_B <- rejection_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -168,7 +169,7 @@ it <- 10000
   rejection_4_2_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -179,7 +180,7 @@ it <- 10000
   rejection_4_3_B <- rejection_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -190,7 +191,7 @@ it <- 10000
   rejection_4_4_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -203,7 +204,7 @@ it <- 10000
   rejection_5_1_B <- rejection_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -214,7 +215,7 @@ it <- 10000
   rejection_5_2_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -224,7 +225,7 @@ it <- 10000
   rejection_5_3_B <- rejection_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -235,7 +236,7 @@ it <- 10000
   rejection_5_4_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -247,7 +248,7 @@ it <- 10000
   rejection_6_1_B <- rejection_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -258,7 +259,7 @@ it <- 10000
   rejection_6_2_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -269,7 +270,7 @@ it <- 10000
   rejection_6_3_B <- rejection_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -280,7 +281,7 @@ it <- 10000
   rejection_6_4_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -292,7 +293,7 @@ it <- 10000
   rejection_7_1_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -303,7 +304,7 @@ it <- 10000
   rejection_7_2_B <- rejection_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -313,7 +314,7 @@ it <- 10000
   rejection_7_3_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -324,7 +325,7 @@ it <- 10000
   rejection_7_4_B <- rejection_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -336,7 +337,7 @@ it <- 10000
   rejection_8_1_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -347,7 +348,7 @@ it <- 10000
   rejection_8_2_B <- rejection_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -358,7 +359,7 @@ it <- 10000
   rejection_8_3_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -369,7 +370,7 @@ it <- 10000
   rejection_8_4_B <- rejection_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -382,7 +383,7 @@ it <- 10000
   rejection_9_1_B <- rejection_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -393,7 +394,7 @@ it <- 10000
   rejection_9_2_B <- rejection_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -403,7 +404,7 @@ it <- 10000
   rejection_9_3_B <- rejection_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -414,7 +415,7 @@ it <- 10000
   rejection_9_4_B <- rejection_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -436,7 +437,7 @@ it <- 10000
   discovery_1_1_B <- discovery_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -454,7 +455,7 @@ it <- 10000
   discovery_2_1_B <- discovery_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -465,7 +466,7 @@ it <- 10000
   discovery_2_2_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -476,7 +477,7 @@ it <- 10000
   discovery_2_3_B <- discovery_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -486,7 +487,7 @@ it <- 10000
   discovery_2_4_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -498,7 +499,7 @@ it <- 10000
   discovery_3_1_B <- discovery_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -509,7 +510,7 @@ it <- 10000
   discovery_3_2_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -519,7 +520,7 @@ it <- 10000
   discovery_3_3_B <- discovery_rate(treat_response_A = 0.1,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -530,7 +531,7 @@ it <- 10000
   discovery_3_4_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -542,7 +543,7 @@ it <- 10000
   discovery_4_1_B <- discovery_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -553,7 +554,7 @@ it <- 10000
   discovery_4_2_B <- discovery_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -564,7 +565,7 @@ it <- 10000
   discovery_4_3_B <- discovery_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -575,7 +576,7 @@ it <- 10000
   discovery_4_4_B <- discovery_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -588,7 +589,7 @@ it <- 10000
   discovery_5_1_B <- discovery_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -599,7 +600,7 @@ it <- 10000
   discovery_5_2_B <- discovery_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -609,7 +610,7 @@ it <- 10000
   discovery_5_3_B <- discovery_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -620,7 +621,7 @@ it <- 10000
   discovery_5_4_B <- discovery_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -632,7 +633,7 @@ it <- 10000
   discovery_6_1_B <- discovery_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -643,7 +644,7 @@ it <- 10000
   discovery_6_2_B <- discovery_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -654,7 +655,7 @@ it <- 10000
   discovery_6_3_B <- discovery_rate(treat_response_A = 0.2,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -665,7 +666,7 @@ it <- 10000
   discovery_6_4_B <- discovery_rate(treat_response_A = 0.4,
                                     treat_response_B = 0.5,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -677,7 +678,7 @@ it <- 10000
   discovery_7_1_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -688,7 +689,7 @@ it <- 10000
   discovery_7_2_B <- discovery_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -698,7 +699,7 @@ it <- 10000
   discovery_7_3_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.1,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -709,7 +710,7 @@ it <- 10000
   discovery_7_4_B <- discovery_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -721,7 +722,7 @@ it <- 10000
   discovery_8_1_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 266,
+                                    n_arm = sample_size_G[1],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -732,7 +733,7 @@ it <- 10000
   discovery_8_2_B <- discovery_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 476,
+                                    n_arm = sample_size_G[2],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -743,7 +744,7 @@ it <- 10000
   discovery_8_3_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.2,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -754,7 +755,7 @@ it <- 10000
   discovery_8_4_B <- discovery_rate(treat_response_A = 0.5,
                                     treat_response_B = 0.4,
                                     baseline_response = 0.3,
-                                    n_arm = 124,
+                                    n_arm = sample_size_G[4],
                                     alpha = 0.025,
                                     
                                     iterations = it,
@@ -766,7 +767,7 @@ it <- 10000
   discovery_9_1_B <- discovery_rate(treat_response_A = 0.3,
                                     treat_response_B = 0.3,
                                     baseline_response = 0.1,
-                                    n_arm = 82,
+                                    n_arm = sample_size_G[3],
                                     alpha = 0.025,
                                     
                                     iterations = it,
