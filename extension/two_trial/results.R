@@ -1,4 +1,6 @@
 source("./extension/two_trial/functions/successful_trials_extension.R")
+source("sample_sizes.R")
+
 
 it <- 10000
 
