@@ -2,7 +2,7 @@ source("./extension/two_trial/functions/successful_one_trial.R")
 source("sample_sizes.R")
 
 
-it <- 10000
+it <- 100
 
 # 1. Treatment A has no true effect (treatment effect, Δ = 0%)
 # Powered to Δ = 10% and with baseline response 10%:

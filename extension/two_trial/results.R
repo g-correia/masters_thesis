@@ -2,7 +2,7 @@ source("./extension/two_trial/functions/successful_trials_extension.R")
 source("sample_sizes.R")
 
 
-it <- 10000
+it <- 100
 
 # 1/9 Treatment A has no true effect (treatment effect, Δ = 0%) and
 # Treatment B has no true effect (treatment effect, Δ = 0%) [type I error].

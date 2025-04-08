@@ -7,7 +7,7 @@ discovery_rate <- function(treat_response_A,
                            baseline_response,
                            n_arm,
                            alpha,
-                           iterations = 100,
+                           iterations,
                            scenario) {
   
   false_discovery_unadjusted <- c()
