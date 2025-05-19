@@ -12,6 +12,7 @@ The structure of this archive is as follows:
     - 'functions' folder, that contain the 
       - generative process for the respective trial ('gen_' starting .R files) and 
       - functions to obtain the outcome measures ('rejection_rate'/'false_discovery_rate.R').
+  
   The analysis of (i) a single experimental treatment is under the files of folder scenario_1, and the analysis for (ii) two distinct treatments + one individual trial is under the files of folder scenario_2.
 
 Steps to retrieve the analyses:
@@ -22,7 +23,9 @@ Steps to retrieve the analyses:
 (3) Outputs: after running (1), the output dataframes for scenario 1 will be saved under main folder "output". However, to obtain and save the outputs for scenario 2, in path 'scenario_2' -> 'results_tables', first run file "result_objects.R" and then the .R extension 'table_' starting files. These will result in the outcome dataframes, saved in main folder "output".
 
   Note 1: the data consists simply of vectors generated from the binomial distribution. There was no need for a specific file archivation of these vectors, however, the data can be retrieved from the 'gen_' starting .R extension functions within the 'functions' subfolders. Refer to the headers for further specifications on the generative functions for scenario 1, and to the README file for scenario 2.
+ 
   Note 2: the functions used to obtain the outcome measures are contained within the subfolders "functions". Refer to the headers for further specifications on the outcome measures functions.
+  
   Note 3: besides the output files, the 'results_tables' .R extension files contained within scenario_2 also provide html versions of the visualizations in the report (as well as supporting latex code for text generation in tex). The remaining .R files starting with "results_tables_" are the outputs for the tables in the appendix and results section of the report.
 
 
