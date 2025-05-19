@@ -1,5 +1,7 @@
   In this project, we investigate whether a single, well‐designed platform trial with a common control can achieve comparable evidence as that of the traditional two‐trial paradigm, and assess the impact of various multiplicity adjustments. 
+  
   By conducting a simulation study comparing platform and two‐trial configurations in two settings: (i) a single experimental treatment evaluated twice versus two separate trials; (ii) two distinct treatments assessed concurrently or sequentially within the platform versus paired independent trials. 
+  
   The outcome is binary, and we vary response rates, allocation ratios, and treatment effect scenarios to reflect typical oncology settings. We examined unadjusted analyses alongside typical multiplicity adjustments, Bonferroni and Dunnett’s, besides a proposed stringent “single‐pivotal” threshold. We also applied the online procedure (modified LOND) for sequential testing. The metrics evaluated were type I error, power, and false discovery rate.
 
   All data is fully generated such that the arms follow a binomial distribution with the corresponding response rates and treatment effects. 
