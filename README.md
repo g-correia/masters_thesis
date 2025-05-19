@@ -16,9 +16,10 @@ The structure of this archive is as follows:
   The analysis of (i) a single experimental treatment is under the files of folder scenario_1, and the analysis for (ii) two distinct treatments + one individual trial is under the files of folder scenario_2.
 
 Steps to retrieve the analyses:
+
 (1) Retrieve results for scenario 1: simply run all the lines of the file results.R: within the platform folder to obtain the results for the platform trial or within the two-trial folder for results of the two individual trials.
 
-(2) Retrieve for scenario 2: 
+(2) Retrieve results for scenario 2: 
 
   a. Run the lines of file call.R to load the functions and iterations numbers needed for the analyses;
   
