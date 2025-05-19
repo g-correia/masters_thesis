@@ -263,9 +263,7 @@
 df1[1,]<-""
 df1<-data.frame(df1)
 
-df1_res<-df1[,-c(6,7,10,11,14,15,19:21,25:27)] # filtering settings 2, 4 and 6 for plat same times, and 2 and 4 for diff times
-
-df1_res[,1] <- c("$\\Delta_A (\\%)$",
+df1[,1] <- c("$\\Delta_A (\\%)$",
             "0",
             "0",
             "0",
@@ -276,7 +274,7 @@ df1_res[,1] <- c("$\\Delta_A (\\%)$",
             "20",
             "20")
 
-df1_res[,2] <- c("$\\Delta_B (\\%)$",
+df1[,2] <- c("$\\Delta_B (\\%)$",
             "0",
             "10",
             "20",
@@ -288,32 +286,32 @@ df1_res[,2] <- c("$\\Delta_B (\\%)$",
             "20")
 
 
-colnames(df1_res) <- c("Treatment","", "A", "A", rep(c("A"," "), 3), rep(c("A", "B", ""), 3))
+colnames(df1) <- c("Treatment","", "A", "A", rep(c("A"," "), 6), rep(c("A", "B", ""), 5))
 
-top_header <- c(" " = 2, "Single Trial*" = 1, "Two-Trial" = 1, "Platform Same Time" = 6, "Platform Different Times" = 9)
+top_header <- c(" " = 2, "Single Trial*" = 1, "Two-Trial" = 1, "Platform Same Time" = 12, "Platform Different Times" = 15)
 
 second_header <- c(" " = 2, 
                    "Unadjusted" = 1, 
                    "Unadjusted" = 1, 
-                   "Unadjusted" = 2, "Strategy 3" = 2,  "Strategy 5" = 2,
-                   "Unadjusted" = 3, "Bonferroni" = 3, "LOND" = 3)
+                   "Unadjusted" = 2, "Strategy 2" = 2, "Strategy 3" = 2, "Strategy 4" = 2, "Strategy 5" = 2, "Strategy 6" = 2,
+                   "Unadjusted" = 3, "Pivotal" = 3, "Bonferroni" = 3, "Bonf + Pivotal" = 3, "LOND" = 3)
 
 third_header <- c(" " = 2, 
                   "RR (%)" = 1, 
                   "RR (%)" = 1, 
-                  rep(c("RR (%)" = 1, "FDR (%)" = 1), 3), 
-                  rep(c("RR (%)" = 2, "FDR (%)" = 1), 3))
+                  rep(c("RR (%)" = 1, "FDR (%)" = 1), 6), 
+                  rep(c("RR (%)" = 2, "FDR (%)" = 1), 5))
 
 
 
-table_html <- kable(df1_res, format = "html", caption = "Table of results 1: Powered to delta = 10%, with baseline response rate 10% (N_arm = 285).", align = "c", escape = FALSE) %>%
+table_html <- kable(df1, format = "html", caption = "Table of results 1: Powered to delta = 10%, with baseline response rate 10% (N_arm = 285).", align = "c", escape = FALSE) %>%
   add_header_above(third_header) %>%
   add_header_above(second_header) %>%
   add_header_above(top_header) %>% 
   kable_styling(full_width = FALSE)
 table_html
 
-table_latex <- kable(df1_res, format = "latex", caption = "Table of results 1: Powered to delta = 10%, with baseline response rate 10% (N_arm = 285).", align = "c", escape = FALSE) %>%
+table_latex <- kable(df1, format = "latex", caption = "Table of results 1: Powered to delta = 10%, with baseline response rate 10% (N_arm = 285).", align = "c", escape = FALSE) %>%
   add_header_above(third_header) %>%
   add_header_above(second_header) %>%
   add_header_above(top_header) %>% 

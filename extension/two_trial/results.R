@@ -2,7 +2,7 @@ source("./extension/two_trial/functions/successful_trials_extension.R")
 source("sample_sizes.R")
 
 
-it <- 100
+it <- 10000
 
 # 1/9 Treatment A has no true effect (treatment effect, Δ = 0%) and
 # Treatment B has no true effect (treatment effect, Δ = 0%) [type I error].
@@ -193,7 +193,6 @@ two_trial_4_3 <- successful_trials_extension(
   baseline_response_B = 0.1,
   n_arm = arm_sizes_G[3],
   alpha = 0.025,
-  
   iterations = it
 )
 
@@ -423,7 +422,7 @@ two_trial_8_4 <- successful_trials_extension(
 
 # 9/9 Treatment A has treatment effect (Δ) of 20% vs Treatment B has treatment effect (Δ) of 20%
 
-# Δ = 10%, baseline response rate of 10%:
+# powered to Δ = 10%, with baseline response rate of 10%:
 set.seed(123)
 two_trial_9_1 <- successful_trials_extension(
   treat_response_A = 0.3,
@@ -435,19 +434,18 @@ two_trial_9_1 <- successful_trials_extension(
   iterations = it
 )
 
-# Δ = 10%, baseline response rate of 30%:
+# powered to Δ = 10%, with baseline response rate of 30%:
 set.seed(123)
 two_trial_9_2 <- successful_trials_extension(
-  treat_response_A = 0.4,
-  treat_response_B = 0.4,
+  treat_response_A = 0.5,
+  treat_response_B = 0.5,
   baseline_response_A = 0.3,
   baseline_response_B = 0.3,
   n_arm = arm_sizes_G[2],
   alpha = 0.025,
-  
   iterations = it
 )
-# Δ = 20%, baseline response rate of 10%:
+# powered to Δ = 20%, with baseline response rate of 10%:
 set.seed(123)
 two_trial_9_3 <- successful_trials_extension(
   treat_response_A = 0.3,
@@ -459,7 +457,7 @@ two_trial_9_3 <- successful_trials_extension(
   iterations = it
 )
 
-# Δ = 20%, baseline response rate of 30%:
+# powered to Δ = 20%, with baseline response rate of 30%:
 set.seed(123)
 two_trial_9_4 <- successful_trials_extension(
   treat_response_A = 0.5,

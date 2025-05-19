@@ -18,7 +18,7 @@ gen_platform_a <-
       
       data <- data.frame(response, group)
       
-      dunnett_result <- DescTools::DunnettTest(response ~ group, data = data, control = "control", conf.level = 1-alpha)
+      dunnett_result <- DescTools::DunnettTest(response ~ group, data = data, control = "control", conf.level = 1-alpha*2)
       
       # Result Dunnett's test
       pvals_dunnett <- unname(dunnett_result$control[,4])

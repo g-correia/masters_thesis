@@ -1,6 +1,6 @@
 source("./simple_case/two_trial/functions/gen_rct.R")
 
-### For two individual trials: 
+### Two individual trials for one treatment: 
 successful_trials <- function(treat_response, baseline_response, n_arm, iterations, alpha){
   counts <- 0
   

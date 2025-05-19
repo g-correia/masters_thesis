@@ -28,13 +28,13 @@ rejection_rate <- function(
     counts_treat_b_st6 <- 0
     
     # Adjust to account for single pivotal study
-    alpha_pivotal <- alpha/4
+    alpha_pivotal <- 0.000625
     
     # Bonferroni corrections (also for strategy 6)
     alpha_bonf <- alpha/2
     
     # Adjust to account for single pivotal study and apply bonferroni correction
-    alpha_bonf_pivotal  <- alpha/8
+    alpha_bonf_pivotal  <- 0.0003125
     
     
     
@@ -93,12 +93,12 @@ rejection_rate <- function(
     if ((trial$effect_dunnett_B > 0 & trial$pval_B_dunnett/2 < alpha)) { # Dunnet's test is two-sided.
       counts_treat_b_st5 <- counts_treat_b_st5 + 1 # rejection treatment B
     }
-    # Strategy 6: Dunnett's test, with bonferroni correction 
-    if ((trial$effect_dunnett_A > 0 & trial$pval_A_dunnett/2 < alpha_bonf)) {
+    # Strategy 6: Dunnett's test, with single pivotal correction 
+    if ((trial$effect_dunnett_A > 0 & trial$pval_A_dunnett/2 < alpha_pivotal)) {
       counts_treat_a_st6 <- counts_treat_a_st6 + 1  # rejection treatment A
     }
       
-    if ((trial$effect_dunnett_B > 0 & trial$pval_B_dunnett/2 < alpha_bonf)) {
+    if ((trial$effect_dunnett_B > 0 & trial$pval_B_dunnett/2 < alpha_pivotal)) {
       counts_treat_b_st6 <- counts_treat_b_st6 + 1 # rejection treatment B
     }
   } 

@@ -257,66 +257,103 @@
 }
 
 
-# Table:
 df2[1,]<-""
 df2<-data.frame(df2)
 
-df2_res<-df2[,-c(6,7,10,11,14,15,19:21,25:27)] # filtering settings 2, 4 and 6 for plat same times, and 2 and 4 for diff times
+df2[,1] <- c("$\\Delta_A (\\%)$",
+             "0",
+             "0",
+             "0",
+             "10",
+             "10",
+             "10",
+             "20",
+             "20",
+             "20")
+
+df2[,2] <- c("$\\Delta_B (\\%)$",
+             "0",
+             "10",
+             "20",
+             "0",
+             "10",
+             "20",
+             "0",
+             "10",
+             "20")
+
+# traditional trials
+df2_1<-df2[,1:4]
+
+# platform same time
+df2_2<-df2[,c(1,2,5:(4+settings_a*2))]
+
+# platform different times
+df2_3<-df2[,c(1,2,(5+settings_a*2):n_cols)]
+
+colnames(df2_1) <- c("Treatment","", "A", "A")
+colnames(df2_2) <- c("Treatment","", rep(c("A"," "), settings_a))
+colnames(df2_3) <- c("Treatment","", rep(c("A", "B", ""), 5))
 
 
-df2_res[,1] <- c("$\\Delta_A (\\%)$",
-            "0",
-            "0",
-            "0",
-            "10",
-            "10",
-            "10",
-            "20",
-            "20",
-            "20")
+second_header_1 <- c(" " = 2, 
+                     "Single Trial* Unadjusted" = 1, 
+                     "Two-Trial Unadjusted" = 1)
 
-df2_res[,2] <- c("$\\Delta_B (\\%)$",
-            "0",
-            "10",
-            "20",
-            "0",
-            "10",
-            "20",
-            "0",
-            "10",
-            "20")
+second_header_2 <- c(" " = 2, 
+                     "Unadjusted" = 2, "Strategy 2" = 2, "Strategy 3" = 2, "Strategy 4" = 2, "Strategy 5" = 2,"Strategy 6" = 2)
 
+second_header_3 <- c(" " = 2, 
+                     "Unadjusted" = 3, "Pivotal" = 3, "Bonferroni" = 3, "Bonf + Pivotal" = 3, "LOND" = 3)
 
-colnames(df2_res) <- c("Treatment","", "A","A", rep(c("A"," "), 3), rep(c("A", "B", ""), 3))
+third_header_1 <- c(" " = 2, 
+                    "RR (%)" = 1, 
+                    "RR (%)" = 1)
 
-top_header <- c(" " = 2, "Single Trial*" = 1, "Two-Trial" = 1, "Platform Same Time" = 6, "Platform Different Times" = 9)
+third_header_2 <- c(" " = 2, 
+                    rep(c("RR (%)" = 1, "FDR (%)" = 1), 6))
 
-second_header <- c(" " = 2, 
-                   "Unadjusted" = 1, 
-                   "Unadjusted" = 1, 
-                   "Unadjusted" = 2, "Strategy 3" = 2, "Strategy 5" = 2, 
-                   "Unadjusted" = 3, "Bonferroni" = 3, "LOND" = 3)
-
-third_header <- c(" " = 2, 
-                  "RR (%)" = 1,
-                  "RR (%)" = 1, 
-                  rep(c("RR (%)" = 1, "FDR (%)" = 1), 3), 
-                  rep(c("RR (%)" = 2, "FDR (%)" = 1), 3))
+third_header_3 <- c(" " = 2, 
+                    rep(c("RR (%)" = 2, "FDR (%)" = 1), 5))
 
 
 
-table_html <- kable(df2_res, format = "html", caption = "Table of results 2: Powered to delta = 10%, with baseline response rate 30% (N_arm = 498).", align = "c", escape = FALSE) %>%
-  add_header_above(third_header) %>%
-  add_header_above(second_header) %>%
-  add_header_above(top_header) %>% 
+table_html_trad <- kable(df2_1, format = "html", caption = "Traditional trials: Powered to delta = 10%, with baseline response rate 30% (N_{arm} = 498).", align = "c", escape = FALSE) %>%
+  add_header_above(third_header_1) %>%
+  add_header_above(second_header_1) %>%
   kable_styling(full_width = FALSE)
-table_html
+table_html_trad
 
-table_latex <- kable(df2_res, format = "latex", caption = "Table of results 2: Powered to delta = 10%, with baseline response rate 30% (N_arm = 498).", align = "c", escape = FALSE) %>%
-  add_header_above(third_header) %>%
-  add_header_above(second_header) %>%
-  add_header_above(top_header) %>% 
+table_html_pt_same <- kable(df2_2, format = "html", caption = "Platform same time: Powered to delta = 10%, with baseline response rate 30% (N_{arm} = 498).", align = "c", escape = FALSE) %>%
+  add_header_above(third_header_2) %>%
+  add_header_above(second_header_2) %>%
   kable_styling(full_width = FALSE)
-table_latex
+table_html_pt_same
+
+table_html_pt_diff <- kable(df2_3, format = "html", caption = "Platform different times: Powered to delta = 10%, with baseline response rate 30% (N_{arm} = 498).", align = "c", escape = FALSE) %>%
+  add_header_above(third_header_3) %>%
+  add_header_above(second_header_3) %>%
+  kable_styling(full_width = FALSE)
+table_html_pt_diff
+
+
+
+table_latex_trad <- kable(df2_1, format = "latex", caption = "Traditional trials: Powered to delta = 10%, with baseline response rate 30% (N_{arm} = 498).", align = "c", escape = FALSE) %>%
+  add_header_above(third_header_1) %>%
+  add_header_above(second_header_1) %>%
+  kable_styling(full_width = FALSE)
+table_latex_trad
+
+table_latex_pt_same <- kable(df2_2, format = "latex", caption = "Platform same time: Powered to delta = 10%, with baseline response rate 30% (N_{arm} = 498).", align = "c", escape = FALSE) %>%
+  add_header_above(third_header_2) %>%
+  add_header_above(second_header_2) %>%
+  kable_styling(full_width = FALSE)
+table_latex_pt_same
+
+table_latex_pt_diff <- kable(df2_3, format = "latex", caption = "Platform different times: Powered to delta = 10%, with baseline response rate 30% (N_{arm} = 498).", align = "c", escape = FALSE) %>%
+  add_header_above(third_header_3) %>%
+  add_header_above(second_header_3) %>%
+  kable_styling(full_width = FALSE)
+table_latex_pt_diff
 
 

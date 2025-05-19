@@ -32,7 +32,7 @@ arm_sizes_R<-c(266, 477, 82, 124)
 arm_sizes_R*4
 
 arm_sizes_G_power <- c(285, 496, 91, 133)
-arm_sizes_G<-if_else(arm_sizes_G_power%%3==0, arm_sizes_G_power, arm_sizes_G_power+3-arm_sizes_G_power%%3)
+arm_sizes_G<-ifelse(arm_sizes_G_power%%3==0, arm_sizes_G_power, arm_sizes_G_power+3-arm_sizes_G_power%%3)
 arm_sizes_G*4
 
 #################

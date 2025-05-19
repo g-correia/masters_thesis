@@ -43,11 +43,11 @@ gen_platform_b <-
     pvals <- c(test_1$p.value, test_2$p.value)
     
     # Set alphas for each adjustment strategy
-    alpha_pivotal <- alpha_unadjusted/4
+    alpha_pivotal <- alpha_unadjusted*alpha_unadjusted
     
     alpha_bonf <- alpha_unadjusted/2
     
-    alpha_bonf_pivotal <- alpha_unadjusted/8
+    alpha_bonf_pivotal <- alpha_unadjusted*alpha_unadjusted/2
     
     lond_result <- onlineFDR::LOND(pvals, alpha = 0.025, dep = TRUE)
       

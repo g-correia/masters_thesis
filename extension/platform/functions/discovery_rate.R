@@ -37,14 +37,16 @@ discovery_rate <- function(treat_response_A,
     if (scenario == "A") {
       
       
-      # Adjust to account for single pivotal study
-      alpha_strategy_2 <- alpha/4
+      # Adjust to account for single pivotal study / Dunnett's + SP
+      alpha_strategy_2 <- 0.000625
       
-      # Bonferroni corrections (also for trategy 6)
+      # Bonferroni correction 
       alpha_strategy_3  <- alpha/2
       
+    
+      
       # Adjust to account for single pivotal study and apply bonferroni correction
-      alpha_strategy_4  <- alpha/8
+      alpha_strategy_4  <- 0.0003125
       
       for (i in 1:iterations) {
         
@@ -254,7 +256,7 @@ if (total_rejections_count_st5 > 0) { # if there were rejections, calculate the 
   true_discovery_st5 <- c(true_discovery_st5, NA)
 }
       
-      if (trial$effect_dunnett_A > 0 & trial$pval_A_dunnett/2 < alpha_strategy_3) { 
+      if (trial$effect_dunnett_A > 0 & trial$pval_A_dunnett/2 < alpha_strategy_2) { 
         total_rejections_count_st6 <- total_rejections_count_st6 + 1
         
         if (treat_response_A > baseline_response) {
@@ -265,7 +267,7 @@ if (total_rejections_count_st5 > 0) { # if there were rejections, calculate the 
         }
       }
       
-      if (trial$effect_dunnett_B > 0 & trial$pval_B_dunnett/2 < alpha_strategy_3) { 
+      if (trial$effect_dunnett_B > 0 & trial$pval_B_dunnett/2 < alpha_strategy_2) { 
         total_rejections_count_st6 <- total_rejections_count_st6 + 1
         
         if (treat_response_B > baseline_response) {
