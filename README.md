@@ -20,9 +20,9 @@ Steps to retrieve the analyses:
 
 (2) Retrieve for scenario 2: 
 
-     a. Run the lines of file call.R to load the functions and iterations numbers needed for the analyses;
-     
-     b. Run all the lines of the files starting with 'results' (extension .R): within the platform folder to obtain the results for the platform trial or within the two-trial folder for results of the two individual trials.
+  a. Run the lines of file call.R to load the functions and iterations numbers needed for the analyses;
+  
+  b. Run all the lines of the files starting with 'results' (extension .R): within the platform folder to obtain the results for the platform trial or within the two-trial folder for results of the two individual trials.
      
 (3) Outputs: after running (1), the output dataframes for scenario 1 will be saved under main folder "output". However, to obtain and save the outputs for scenario 2, in path 'scenario_2' -> 'results_tables', first run file "result_objects.R" and then the .R extension 'table_' starting files. These will result in the outcome dataframes, saved in main folder "output".
 
