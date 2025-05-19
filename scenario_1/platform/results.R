@@ -1,4 +1,4 @@
-source("./simple_case/platform/functions/successful_pt_trials.R")
+source("./scenario_1/platform/functions/successful_pt_trials.R")
 source("sample_sizes.R")
 
 it<-10000
@@ -75,8 +75,8 @@ d2<-successful_pt_trials(n_arm = arm_sizes_G[4],
                         iterations = it, alpha = 0.025, baseline_response = 0.3, treat_response = 0.5)
 
 
-df_scenario1_2 <- matrix(c(a,b,c,d,a2,b2,c2,d2)*100, nrow = 4, ncol = 2, byrow =T, dimnames = NULL)
+df_scenario1_2 <- matrix(c(a[2],b[2],c[2],d[2],a2[2],b2[2],c2[2],d2[2]), nrow = 8, ncol = 2, byrow =T, dimnames = NULL)
 df_scenario1_2 <- data.frame(df_scenario1_2)
-save(scenario_1_platform,file="./output/df_scenario1_2.Rda")
+save(df_scenario1_2,file="./output/scenario_1_platform.Rda")
 
 

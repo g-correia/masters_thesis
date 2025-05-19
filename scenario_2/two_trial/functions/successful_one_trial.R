@@ -1,4 +1,4 @@
-source("./scenario_1/two_trial/functions/gen_rct.R")
+
 
 # Function name: successful_one_trial
 # 

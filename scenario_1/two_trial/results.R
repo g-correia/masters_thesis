@@ -67,7 +67,10 @@ d2<-successful_trials(treat_response = 0.5, n_arm = arm_sizes_G[4],
                      baseline_response = 0.3,
                      iterations = it, alpha = 0.025)
 
-df_scenario1 <- matrix(c(a,b,c,d,a2,b2,c2,d2)*100, nrow = 4, ncol = 2, byrow =T, dimnames = NULL)
+df_scenario1 <- matrix(c(a[2],b[2],c[2],d[2],a2[2],b2[2],c2[2],d2[2]), nrow = 8, ncol = 2, byrow =T, dimnames = NULL)
 df_scenario1 <- data.frame(df_scenario1)
-save(scenario_1_two_trial,file="./output/df_scenario1.Rda")
+save(df_scenario1,file="./output/scenario_1_two_trial.Rda")
+
+
+
 
