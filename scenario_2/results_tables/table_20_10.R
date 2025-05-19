@@ -303,7 +303,7 @@ third_header <- c(" " = 2,
                   rep(c("RR (%)" = 1, "FDR (%)" = 1), 3), 
                   rep(c("RR (%)" = 2, "FDR (%)" = 1), 3))
 
-
+save(df3_res,file="./output/table_20_10.Rda")
 
 table_html <- kable(df3_res, format = "html", caption = "Table of results 3: Powered to delta = 20%, with baseline response rate 10% (N_arm = 93).", align = "c", escape = FALSE) %>%
   add_header_above(third_header) %>%

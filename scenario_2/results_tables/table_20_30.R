@@ -301,7 +301,7 @@ third_header <- c(" " = 2, "RR (%)" = 1, "RR (%)" = 1,
                   rep(c("RR (%)" = 1, "FDR (%)" = 1), 3), 
                   rep(c("RR (%)" = 2, "FDR (%)" = 1), 3))
 
-
+save(df4_res,file="./output/table_20_30.Rda")
 
 table_html <- kable(df4_res, format = "html", caption = "Table of results 4: Powered to delta = 20%, with baseline response rate 30% (N_arm = 135).", align = "c", escape = FALSE) %>%
   add_header_above(third_header) %>%

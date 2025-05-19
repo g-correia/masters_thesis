@@ -1,4 +1,28 @@
-source("./simple_case/two_trial/functions/gen_rct.R")
+source("./scenario_1/two_trial/functions/gen_rct.R")
+
+# Function name: successful_trials_extension
+# 
+# Description: At each iteration, this function generates a two pairs of trials,
+#              for two different treatments.
+#              Each trial has two arms, where one is treatment and one control.
+#              If both comparisons (treatment arm 1 x control and treatment 
+#              arm 2 x control) present evidence in favor of the treatment,
+#              we consider it a "success". This procedure is done in parallel 
+#              for each treatment A and B. Ultimately, this function simulates 
+#              the two-trial paradigm for each treatment A and treatment B.
+#              
+# 
+# Variables: treat_response_A: treatment A effect (proportion), 
+#            treat_response_B: treatment B effect (proportion),
+#            baseline_response_A: control A event probability, 
+#            baseline_response_B: control B event probability, 
+#            n_arm:       number of patients in a treatment arm,
+#            iterations: number of iterations
+#            alpha: the significance level.
+#            
+# 
+# Output: The success rate out of all iterations.
+
 
 successful_trials_extension <- function(
     treat_response_A, 

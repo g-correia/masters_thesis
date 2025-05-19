@@ -11,7 +11,7 @@ it<-10000
 # control = 10%
 
 set.seed(123)
-successful_pt_trials(n_arm = arm_sizes_G[1], 
+a<-successful_pt_trials(n_arm = arm_sizes_G[1], 
                      iterations = it, alpha = 0.025, baseline_response = 0.1, 
                      treat_response = 0.1 # same as baseline for no effect
 )
@@ -23,7 +23,7 @@ successful_pt_trials(n_arm = arm_sizes_G[1],
 # control = 30%
 # n = 477
 set.seed(123) 
-successful_pt_trials(n_arm = arm_sizes_G[2], # delta1 = 0
+b<-successful_pt_trials(n_arm = arm_sizes_G[2], # delta1 = 0
                      iterations = it, alpha = 0.025, baseline_response = 0.3, 
                      treat_response = 0.3 # same as baseline for no effect
 ) 
@@ -33,7 +33,7 @@ successful_pt_trials(n_arm = arm_sizes_G[2], # delta1 = 0
 # control = 10
 # n = 82
 set.seed(123) 
-successful_pt_trials(n_arm = arm_sizes_G[3], # delta1 = 0
+c<-successful_pt_trials(n_arm = arm_sizes_G[3], # delta1 = 0
                      iterations = it, alpha = 0.025, baseline_response = 0.1, 
                      treat_response = 0.1 # same as baseline for no effect
 )
@@ -43,7 +43,7 @@ successful_pt_trials(n_arm = arm_sizes_G[3], # delta1 = 0
 # control = 30
 # n = 124
 set.seed(123) 
-successful_pt_trials(n_arm = arm_sizes_G[4], # delta1 = 0
+d<-successful_pt_trials(n_arm = arm_sizes_G[4], # delta1 = 0
                      iterations = it, alpha = 0.025, baseline_response = 0.3, 
                      treat_response = 0.3 # same as baseline for no effect
 )
@@ -53,24 +53,30 @@ successful_pt_trials(n_arm = arm_sizes_G[4], # delta1 = 0
 
 # delta = treatment effect = 0.1: baseline response rate 10%, treatment response rate = 0.20
 set.seed(123) 
-a<-successful_pt_trials(n_arm = arm_sizes_G[1], # delta1 = 0.1
+a2<-successful_pt_trials(n_arm = arm_sizes_G[1], # delta1 = 0.1
                         iterations = it, alpha = 0.025, baseline_response = 0.1, treat_response = 0.2)
-a
+
 
 # delta = 0.1: baseline response rate 30%, treatment response rate = 0.40
 set.seed(123) 
-b<-successful_pt_trials(n_arm = arm_sizes_G[2], # delta1 = 0
+b2<-successful_pt_trials(n_arm = arm_sizes_G[2], # delta1 = 0
                         iterations = it, alpha = 0.025, baseline_response = 0.3, treat_response = 0.4)
-b
+
 
 # delta = 0.2: baseline response rate 10%, treatment response rate = 0.3
 set.seed(123) 
-c<-successful_pt_trials(n_arm = arm_sizes_G[3], 
+c2<-successful_pt_trials(n_arm = arm_sizes_G[3], 
                         iterations = it, alpha = 0.025, baseline_response = 0.1, treat_response = 0.3)
-c
+
 
 # delta = 0.2: baseline response rate 30%, treatment response rate = 0.5
 set.seed(123) 
-d<-successful_pt_trials(n_arm = arm_sizes_G[4], 
+d2<-successful_pt_trials(n_arm = arm_sizes_G[4], 
                         iterations = it, alpha = 0.025, baseline_response = 0.3, treat_response = 0.5)
-d
+
+
+df_scenario1_2 <- matrix(c(a,b,c,d,a2,b2,c2,d2)*100, nrow = 4, ncol = 2, byrow =T, dimnames = NULL)
+df_scenario1_2 <- data.frame(df_scenario1_2)
+save(scenario_1_platform,file="./output/df_scenario1_2.Rda")
+
+

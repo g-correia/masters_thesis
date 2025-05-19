@@ -1,3 +1,16 @@
+# Function name: gen_platform
+# 
+# Description: This function generates a single platform trial with three arms, two treatments and one control.
+# 
+# Variables: treat_response: treatment effect (proportion), 
+#            baseline_response: control event probability, 
+#            n_arm:       number of patients in a treatment arm.
+#            
+# 
+# Output: a single trial's outcome, consisting of two comparisons (treatment arm 
+#         1 x control and treatment arm 2 x control): Two z-test's statistics
+#         and two p-values.
+
 gen_platform <- function(baseline_response, treat_response, n_arm){
   
   # sum of outcomes for treatment and control groups

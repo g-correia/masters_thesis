@@ -1,5 +1,30 @@
-source("./extension/platform/functions/gen_platform_a.R")
-source("./extension/platform/functions/gen_platform_b.R")
+source("./scenario_2/platform/functions/gen_platform_a.R")
+source("./scenario_2/platform/functions/gen_platform_b.R")
+
+# Function name: discovery_rate
+# 
+# Description: At each iteration, this function generates a platform trial 
+#              [concurrent or sequential].
+#              Each trial has two arms, where one is treatment and one control.
+#              If one or more of the comparisons (treatment arm 1 x control and treatment 
+#              arm 2 x control) present evidence in favor of the treatment,
+#              we consider it a "discovery". The resulting discovery/discoveries is
+#              divided by the total of comparisons made in the trial (in our case, 2),
+#              resulting in the false discovery rate. A discovery is influenced  
+#              by the type of multiplicity adjustment applied.
+#             
+# 
+# 
+# Variables: treat_response_A: treatment A effect (proportion), 
+#            treat_response_B: treatment B effect (proportion),
+#            baseline_response_A: control A event probability, 
+#            baseline_response_B: control B event probability, 
+#            n_arm:       number of patients in a treatment arm,
+#            iterations: number of iterations,
+#            alpha: the significance level,
+#            scenario: A for concurrent, B for sequential
+# 
+# Output: The false discovery rate out of all iterations under the different multiplicity adjustments.
 
 
 discovery_rate <- function(treat_response_A,
