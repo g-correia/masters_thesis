@@ -1,8 +1,4 @@
-source("./extension/platform/functions/rejection_rate.R")
-source("./extension/platform/functions/discovery_rate.R")
-source("sample_sizes.R")
 
-it <- 10000
 
 ##########################################################################
 ###                         2 PLATFORM TRIAL                           ###

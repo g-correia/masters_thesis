@@ -1,18 +1,14 @@
 # Function name: gen_rct
 # 
-# Description: ?
+# Description: This function generates a single trial with two arms, one treatment and one control.
 # 
-# Variables: I_treatment: θ, overall treatment effect (proportion), 
-#            a_control:   lower bound for control event probability, 
-#            b_control:   upper bound for control event probability,
-#            n_arm:       number of patients in a treatment arm, 
-#            tau:         true between-study standard-deviation. 
+# Variables: treat_response: treatment effect (proportion), 
+#            baseline_response: control event probability, 
+#            n_arm:       number of patients in a treatment arm.
 #            
 # 
-# Output: ?
+# Output: a single trial's outcome, (z-test statistic and p-value).
 
-
-# one trial generation with heterogeneity
  gen_rct <- function(treat_response, baseline_response, n_arm){
    
    treatment_group <- rbinom(n = n_arm, size = 1, prob = treat_response) # 1 = success

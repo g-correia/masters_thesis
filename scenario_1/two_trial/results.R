@@ -1,4 +1,4 @@
-source("./simple_case/two_trial/functions/successful_trials.R")
+source("./scenario_1/two_trial/functions/successful_trials.R")
 source("sample_sizes.R")
 
 it<-10000
